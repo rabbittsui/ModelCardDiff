@@ -7,3 +7,4 @@ All notable changes to this project are recorded here.
 Initial release.
 
 - Card parser that reads sections, capability claims, and evaluation results.
+- Requirements schema with required section resolution.
