@@ -10,3 +10,4 @@ Initial release.
 - Requirements schema with required section resolution.
 - Claim to citation resolution, uncited claim detection, metric quote checking,
   and limitation distinctness.
+- Gate that passes or refuses a card against a schema.
