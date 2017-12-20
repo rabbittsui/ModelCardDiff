@@ -8,3 +8,5 @@ Initial release.
 
 - Card parser that reads sections, capability claims, and evaluation results.
 - Requirements schema with required section resolution.
+- Claim to citation resolution, uncited claim detection, metric quote checking,
+  and limitation distinctness.
