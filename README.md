@@ -45,3 +45,16 @@ this document with the command and its verbatim output.
 A model card is a document that describes what a model does, what it should be
 used for, and where it falls short. Two things go wrong with model cards over
 time, and both are quiet.
+
+The first is that a card makes a capability claim that no evaluation supports.
+Someone writes "reaches state of the art quality on every public benchmark" and
+there is no result in the card that measures it. The claim reads well and cites
+nothing, or cites an evaluation that does not appear in the results. A reader
+skimming the card has no way to tell a backed claim from an unbacked one.
+
+The second is that a card loses a limitation between versions. A model had a
+known weakness, the weakness was written down, and in the next revision the
+sentence is gone. Nobody announced the removal. The model may still have the
+weakness. A plain text diff would show the deletion buried among reworded
+sentences and updated numbers, and it is easy to miss.
+
