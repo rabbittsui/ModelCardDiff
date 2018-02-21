@@ -72,3 +72,16 @@ The gate runs four checks. A card passes only when all four hold.
 2. Every capability claim cites an evaluation, and every cited evaluation
    appears in the Results section. A claim that cites nothing is an uncited
    claim. A claim that cites an id no result provides is a dangling citation.
+3. No claim quotes an exact metric value that no result carries. A claim that
+   states a bound, such as "accuracy above 0.90", is a threshold and is not
+   required to equal a result. A claim that states an exact value, such as
+   "accuracy of 0.99", must match a result value.
+4. Every stated limitation is distinct. Two limitations that reduce to the same
+   content words after removing stopwords are treated as boilerplate repetition
+   rather than two separate limitations.
+
+The diff classifies every change between two versions into exactly one of four
+kinds: an added claim, a removed limitation, a metric regression, or an
+editorial change. The direction that counts as a regression depends on the
+metric. For a rate whose name contains `confusion`, `error`, `loss`, or
+`latency`, a rise is a regression. For everything else a fall is a regression.
