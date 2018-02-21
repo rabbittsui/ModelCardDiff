@@ -58,3 +58,17 @@ sentence is gone. Nobody announced the removal. The model may still have the
 weakness. A plain text diff would show the deletion buried among reworded
 sentences and updated numbers, and it is easy to miss.
 
+ModelCardDiff exists for those two failures. It refuses a card that is
+incomplete or makes an unbacked claim, and when it compares two versions it
+raises a removed limitation and a regressed metric to the top of the report
+rather than leaving them in a wall of line changes.
+
+## What the tool checks
+
+The gate runs four checks. A card passes only when all four hold.
+
+1. Every required section named by the schema exists in the card and has a
+   non-empty body.
+2. Every capability claim cites an evaluation, and every cited evaluation
+   appears in the Results section. A claim that cites nothing is an uncited
+   claim. A claim that cites an id no result provides is a dangling citation.
