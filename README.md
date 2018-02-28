@@ -85,3 +85,16 @@ kinds: an added claim, a removed limitation, a metric regression, or an
 editorial change. The direction that counts as a regression depends on the
 metric. For a rate whose name contains `confusion`, `error`, `loss`, or
 `latency`, a rise is a regression. For everything else a fall is a regression.
+
+## Install and run
+
+The tool is pure Python 3.11 with no third party dependencies. You can run it
+straight from the source tree by putting `src` on the path.
+
+```
+set PYTHONPATH=src
+python -m modelcarddiff version
+```
+
+On a POSIX shell the first line is `export PYTHONPATH=src` instead. Installing
+the package with pip also installs a `modelcarddiff` console script.
