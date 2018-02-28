@@ -124,3 +124,16 @@ Here is the Capabilities and Results section of `samples/complete.card`, which
 shows a claim citing a result that exists.
 
 ```
+## Capabilities
+
+- claim: Classifies the eight supported intents with accuracy above 0.90 on the held out split. (cites: eval-intent-accuracy)
+
+## Results
+
+eval-intent-accuracy = accuracy 0.93
+```
+
+## The schema format
+
+A schema is a list of directives, one per line, parsed by
+`src/modelcarddiff/schema.py`. Blank lines and lines beginning with `#` are
