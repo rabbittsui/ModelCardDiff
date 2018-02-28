@@ -98,3 +98,16 @@ python -m modelcarddiff version
 
 On a POSIX shell the first line is `export PYTHONPATH=src` instead. Installing
 the package with pip also installs a `modelcarddiff` console script.
+
+```
+pip install .
+modelcarddiff version
+```
+
+## The card format
+
+A card is Markdown with a small set of conventions. The parser lives in
+`src/modelcarddiff/card.py`.
+
+- `# Title` on the first heading line is the card title.
+- `## Section Name` starts a section. Its body is every line until the next
