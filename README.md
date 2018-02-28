@@ -111,3 +111,16 @@ A card is Markdown with a small set of conventions. The parser lives in
 
 - `# Title` on the first heading line is the card title.
 - `## Section Name` starts a section. Its body is every line until the next
+  `##` heading.
+- A capability claim is a bullet in the Capabilities section written as
+  `- claim: <text> (cites: <eval-id>)`. The `(cites: <eval-id>)` suffix is
+  optional. A claim without it is an uncited claim.
+- A limitation is any bullet in the Limitations section.
+- A result is a line in the Results section written as
+  `<eval-id> = <metric-name> <value>`. The value is read as a number when it
+  parses as one, otherwise it is kept as text.
+
+Here is the Capabilities and Results section of `samples/complete.card`, which
+shows a claim citing a result that exists.
+
+```
