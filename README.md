@@ -150,3 +150,16 @@ require Results
 Each `require` names a section that must exist and be non-empty. Section names
 are matched case insensitively. A duplicate `require` is collapsed, so listing
 a section twice does not report it twice.
+
+## Commands
+
+The command line interface is argparse based, defined in
+`src/modelcarddiff/cli.py`. There are four subcommands.
+
+| Command | Arguments | Purpose |
+| --- | --- | --- |
+| `gate` | `<schema> <card>` | Check a card against a schema and pass or refuse. |
+| `diff` | `<old> <new>` | Compare two card versions and classify each change. |
+| `claims` | `<card>` | Show which evaluation each capability claim cites. |
+| `version` | none | Print the package version. |
+
