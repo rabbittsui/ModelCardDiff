@@ -137,3 +137,16 @@ eval-intent-accuracy = accuracy 0.93
 
 A schema is a list of directives, one per line, parsed by
 `src/modelcarddiff/schema.py`. Blank lines and lines beginning with `#` are
+ignored.
+
+```
+require Overview
+require Intended Use
+require Capabilities
+require Limitations
+require Results
+```
+
+Each `require` names a section that must exist and be non-empty. Section names
+are matched case insensitively. A duplicate `require` is collapsed, so listing
+a section twice does not report it twice.
