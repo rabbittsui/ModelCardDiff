@@ -163,3 +163,16 @@ The command line interface is argparse based, defined in
 | `claims` | `<card>` | Show which evaluation each capability claim cites. |
 | `version` | none | Print the package version. |
 
+## Worked example: gating the sample cards
+
+The complete card satisfies every check. This is the run that fills the table
+at the top of this document.
+
+```
+python -m modelcarddiff gate samples/schema.txt samples/complete.card
+```
+
+```
+PASS complete.card: all checks satisfied
+```
+
