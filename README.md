@@ -242,3 +242,16 @@ Each finding and each change should trigger a specific action.
 | --- | --- | --- |
 | `missing-section` | A required section is absent. | Add the section with real content. |
 | `empty-section` | A required section exists but has no body. | Write the section or remove the requirement. |
+| `uncited-claim` | A capability claim cites no evaluation. | Add a citation to a result, or soften the claim. |
+| `dangling-citation` | A claim cites an id no result defines. | Add the missing result, or fix the id. |
+| `unmatched-metric` | A claim quotes an exact value no result carries. | Correct the number or the result. |
+| `duplicate-limitation` | Two limitations say the same thing. | Merge them or write a distinct second limitation. |
+| added claim | A new capability was asserted. | Confirm it is backed before shipping. |
+| removed limitation | A known weakness was dropped. | Confirm the weakness is genuinely gone. |
+| metric regression | A result moved in the worse direction. | Decide whether the regression is acceptable. |
+| editorial | Wording or a non-regressing value changed. | Read for accuracy, no gate action needed. |
+
+## Output format, field by field
+
+The gate report is line oriented so it diffs cleanly in git.
+
