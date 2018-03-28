@@ -216,3 +216,16 @@ summary: 1 added claim, 1 removed limitation, 2 metric regression, 1 editorial
 
 The removed limitation is the refund and billing confusion note. Nothing in the
 prose announced its removal. The two regressions move in opposite numeric
+directions, accuracy down and confusion rate up, and the tool reports both as
+regressions because it knows a higher confusion rate is worse.
+
+The `claims` command shows the citation state of each claim on its own. Here it
+is on the incomplete card.
+
+```
+python -m modelcarddiff claims samples/incomplete.card
+```
+
+```
+claims for incomplete.card: 3
+  CITES    eval-intent-accuracy         Classifies the eight supported intents with accuracy above 0.88 on the held out split.
