@@ -176,3 +176,16 @@ python -m modelcarddiff gate samples/schema.txt samples/complete.card
 PASS complete.card: all checks satisfied
 ```
 
+The incomplete card is authored to fail three ways at once: it omits the
+required Limitations section, it makes a memory claim that cites nothing, and it
+makes a benchmark claim that cites an evaluation the results never define.
+
+```
+python -m modelcarddiff gate samples/schema.txt samples/incomplete.card
+```
+
+```
+REFUSE incomplete.card: 3 finding(s)
+  [missing-section] required section 'Limitations' is missing
+  [uncited-claim] (line 16) claim cites no evaluation: Runs comfortably within 64 megabytes of memory on the target device.
+  [dangling-citation] (line 17) claim cites 'eval-sota' which is not in results: Reaches state of the art quality on every public benchmark.
