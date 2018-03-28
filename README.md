@@ -229,3 +229,16 @@ python -m modelcarddiff claims samples/incomplete.card
 ```
 claims for incomplete.card: 3
   CITES    eval-intent-accuracy         Classifies the eight supported intents with accuracy above 0.88 on the held out split.
+  UNCITED  -                            Runs comfortably within 64 megabytes of memory on the target device.
+  DANGLING eval-sota                    Reaches state of the art quality on every public benchmark.
+summary: 1 resolved, 1 uncited, 1 dangling
+```
+
+## Reading the reports
+
+Each finding and each change should trigger a specific action.
+
+| Finding or change | What it means | What to do |
+| --- | --- | --- |
+| `missing-section` | A required section is absent. | Add the section with real content. |
+| `empty-section` | A required section exists but has no body. | Write the section or remove the requirement. |
