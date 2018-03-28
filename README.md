@@ -189,3 +189,17 @@ REFUSE incomplete.card: 3 finding(s)
   [missing-section] required section 'Limitations' is missing
   [uncited-claim] (line 16) claim cites no evaluation: Runs comfortably within 64 megabytes of memory on the target device.
   [dangling-citation] (line 17) claim cites 'eval-sota' which is not in results: Reaches state of the art quality on every public benchmark.
+```
+
+## Worked example: diffing two versions
+
+The second version of the complete card adds a claim, drops a limitation, and
+regresses two metrics. The diff separates the change that matters from the
+change that does not.
+
+```
+python -m modelcarddiff diff samples/complete.card samples/complete-v2.card
+```
+
+```
+diff complete.card -> complete-v2.card: 5 change(s)
