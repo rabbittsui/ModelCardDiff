@@ -203,3 +203,16 @@ python -m modelcarddiff diff samples/complete.card samples/complete-v2.card
 
 ```
 diff complete.card -> complete-v2.card: 5 change(s)
+  [added claim] Supports a new escalation intent bringing the total to nine classes.
+  [removed limitation] The refund and billing classes share vocabulary and are confused more often than other pairs.
+  [metric regression] eval-intent-accuracy accuracy fell from 0.93 to 0.91
+  [metric regression] eval-refund-billing-confusion confusion_rate rose from 0.11 to 0.14
+  [editorial] result added: eval-escalation-recall recall 0.82
+```
+
+```
+summary: 1 added claim, 1 removed limitation, 2 metric regression, 1 editorial
+```
+
+The removed limitation is the refund and billing confusion note. Nothing in the
+prose announced its removal. The two regressions move in opposite numeric
