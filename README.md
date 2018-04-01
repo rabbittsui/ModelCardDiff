@@ -294,3 +294,16 @@ on a dropped limitation as well, grep the output for `removed limitation`.
 ## Limitations
 
 The tool is deliberately small, and it does not do several things.
+
+- It does not judge whether a claim is true, only whether it cites an
+  evaluation that exists. A card can cite a result that is itself wrong, and the
+  gate will pass it.
+- It does not read the value of a bound. A claim of "accuracy above 0.90" passes
+  whether the cited result is 0.93 or 0.05. The bound is treated as prose, not
+  compared against the number.
+- The distinctness check compares content words after removing a fixed stopword
+  list. Two limitations that describe genuinely different problems using the
+  same vocabulary could be flagged, and two that use different words for the
+  same idea could be missed. It catches lightly reworded boilerplate, not
+  semantic paraphrase.
+- The regression direction is decided by a fixed list of metric name fragments.
