@@ -281,3 +281,16 @@ The claims report has a header, one line per claim, and a summary.
 | Code | Meaning |
 | --- | --- |
 | 0 | Clean. The gate passed, or the diff found no regression. |
+| 1 | Findings present. The gate refused, or the diff found a regression. |
+| 2 | Usage error, including a malformed schema. |
+
+The diff exits 1 only on a metric regression, not on a removed limitation. A
+removed limitation is always shown and always worth reading, but the numeric
+gate for continuous integration is the regression. If you want to fail a build
+on a dropped limitation as well, grep the output for `removed limitation`.
+
+<img src="docs/assets/logo.svg" alt="ModelCardDiff wordmark, modelcard in dark ink and diff in green" width="240" />
+
+## Limitations
+
+The tool is deliberately small, and it does not do several things.
