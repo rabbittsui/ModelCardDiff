@@ -255,3 +255,16 @@ Each finding and each change should trigger a specific action.
 
 The gate report is line oriented so it diffs cleanly in git.
 
+| Line | Fields | Meaning |
+| --- | --- | --- |
+| header | `PASS <card>: ...` or `REFUSE <card>: <n> finding(s)` | Overall result and finding count. |
+| finding | `  [<code>] (line <n>) <message>` | One finding, indented, with its code and source line when known. |
+
+The diff report has a header, one line per change, and a summary.
+
+| Line | Fields | Meaning |
+| --- | --- | --- |
+| header | `diff <old> -> <new>: <n> change(s)` | The two versions and the change count. |
+| change | `  [<label>] <detail>` | One classified change. |
+| summary | `summary: <a> added claim, <b> removed limitation, ...` | Counts by kind. |
+
