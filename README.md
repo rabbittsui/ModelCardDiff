@@ -268,3 +268,16 @@ The diff report has a header, one line per change, and a summary.
 | change | `  [<label>] <detail>` | One classified change. |
 | summary | `summary: <a> added claim, <b> removed limitation, ...` | Counts by kind. |
 
+The claims report has a header, one line per claim, and a summary.
+
+| Line | Fields | Meaning |
+| --- | --- | --- |
+| header | `claims for <card>: <n>` | The card and its claim count. |
+| claim | `  <STATUS> <target> <text>` | Status is CITES, UNCITED, or DANGLING. |
+| summary | `summary: <a> resolved, <b> uncited, <c> dangling` | Counts by status. |
+
+## Exit codes
+
+| Code | Meaning |
+| --- | --- |
+| 0 | Clean. The gate passed, or the diff found no regression. |
