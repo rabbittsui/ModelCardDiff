@@ -333,3 +333,17 @@ eval-intent-accuracy which exists, the memory claim is uncited and marked in
 amber, and the benchmark claim cites eval-sota which is absent.](docs/assets/claim-citations.svg)
 
 Every label and number in the diagram is copied from the sample card and matches
+the output of `modelcarddiff claims samples/incomplete.card` shown above.
+
+## Design decisions
+
+**A bound is not an exact quote.** The first version of the metric check flagged
+every number in a claim that did not equal a result. That refused the complete
+card, because "accuracy above 0.90" does not equal the measured 0.93. The check
+now looks at the word before the number. A comparison word (above, under, at
+least, and the like) marks a bound, which is prose the tool does not verify. A
+number stated directly is an exact quote that must match. The rejected
+alternative, comparing every number, punished honest threshold language and made
+the gate unusable for normal cards.
+
+**Removed limitation does not set the exit code.** It would be tempting to fail
