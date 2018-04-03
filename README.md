@@ -307,3 +307,16 @@ The tool is deliberately small, and it does not do several things.
   same idea could be missed. It catches lightly reworded boilerplate, not
   semantic paraphrase.
 - The regression direction is decided by a fixed list of metric name fragments.
+  A metric whose name does not contain one of those fragments is assumed to be
+  better when higher. A metric where lower is better but whose name is unusual
+  will be misclassified.
+- The card format is a small convention, not a standard. It does not read the
+  richer schemas used by hosted model card tools, and it does not emit them.
+- Multi-line claim and limitation bullets are read only up to the first physical
+  line. A bullet whose text wraps onto a second line loses the continuation.
+
+These limits are the cost of a tool that runs offline in a few milliseconds with
+no dependencies. The checks it does run, it runs deterministically.
+
+## The claim citation diagram
+
