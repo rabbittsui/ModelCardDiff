@@ -320,3 +320,16 @@ no dependencies. The checks it does run, it runs deterministically.
 
 ## The claim citation diagram
 
+The diagram below is built from the real claims in `samples/incomplete.card`
+and the single result that card provides. The left column is the three
+capability claims. The right column is the results. A solid green connector is a
+claim that resolves to a result that exists. The dashed connector is the
+dangling citation to `eval-sota`, which no result defines. The amber box is the
+uncited claim, the memory claim that cites nothing, marked because it is the
+first thing a reviewer should look at.
+
+![Claim to evaluation citations for the sample card: the accuracy claim cites
+eval-intent-accuracy which exists, the memory claim is uncited and marked in
+amber, and the benchmark claim cites eval-sota which is absent.](docs/assets/claim-citations.svg)
+
+Every label and number in the diagram is copied from the sample card and matches
