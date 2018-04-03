@@ -347,3 +347,16 @@ alternative, comparing every number, punished honest threshold language and made
 the gate unusable for normal cards.
 
 **Removed limitation does not set the exit code.** It would be tempting to fail
+the build on a dropped limitation. The problem is that a limitation is
+legitimately removed when the weakness is genuinely fixed, and that is a normal
+part of model improvement. Failing on it would train people to stop writing
+limitations so the diff stays quiet, which is the opposite of the goal. The tool
+always shows the removal prominently and leaves the decision to a human, while
+reserving the hard exit code for a metric regression, which is a number and not
+a judgement.
+
+**Regression direction is a name heuristic, not configuration.** A configurable
+per metric direction would be more precise, but it would also be one more file
+to keep in sync with the card, and a stale configuration is worse than a
+transparent heuristic. The tool encodes the common cases (a rising error, loss,
+latency, or confusion rate is worse) and documents the assumption so a
