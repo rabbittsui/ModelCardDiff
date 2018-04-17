@@ -360,3 +360,16 @@ per metric direction would be more precise, but it would also be one more file
 to keep in sync with the card, and a stale configuration is worse than a
 transparent heuristic. The tool encodes the common cases (a rising error, loss,
 latency, or confusion rate is worse) and documents the assumption so a
+misclassification is visible rather than hidden in a config nobody reads.
+
+**Line oriented output over structured output.** The reports are plain lines,
+not JSON. The tool is meant to sit in a pull request and a terminal, where a
+clean textual diff is more useful than a machine format. A structured output
+mode is on the roadmap, but the default stays readable.
+
+## Repository layout
+
+```
+modelcarddiff/
+  README.md                     this file
+  LICENSE                       MIT, holder "Xiaoxiao Cui", 2026
