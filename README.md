@@ -373,3 +373,16 @@ mode is on the roadmap, but the default stays readable.
 modelcarddiff/
   README.md                     this file
   LICENSE                       MIT, holder "Xiaoxiao Cui", 2026
+  CHANGELOG.md                  release notes
+  pyproject.toml                packaging, console script entry point
+  .gitignore                    ignore rules
+  src/modelcarddiff/
+    __init__.py                 package version
+    __main__.py                 python -m modelcarddiff entry point
+    cli.py                      argparse subcommands and exit codes
+    card.py                     parse the card into sections, claims, results
+    schema.py                   requirements schema and section resolution
+    claims.py                   citation resolution and the claim level checks
+    gate.py                     the pass or refuse decision
+    diff.py                     version comparison and change classification
+    report.py                   line oriented rendering of every command
