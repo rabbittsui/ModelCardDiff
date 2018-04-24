@@ -386,3 +386,16 @@ modelcarddiff/
     gate.py                     the pass or refuse decision
     diff.py                     version comparison and change classification
     report.py                   line oriented rendering of every command
+  tests/
+    test_card.py                card parser tests
+    test_schema.py              schema and section resolution tests
+    test_claims.py              citation, metric quote, distinctness tests
+    test_gate.py                gate decision tests
+    test_diff.py                diff classification tests
+    test_cli.py                 end to end CLI and exit code tests
+  samples/
+    README.md                   how each fixture was constructed
+    schema.txt                  five required sections
+    complete.card               a card that passes the gate
+    incomplete.card             a card the gate refuses
+    complete-v2.card            a second version for the diff
