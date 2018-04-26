@@ -399,3 +399,16 @@ modelcarddiff/
     complete.card               a card that passes the gate
     incomplete.card             a card the gate refuses
     complete-v2.card            a second version for the diff
+  docs/assets/
+    logo.svg                    wordmark
+    claim-citations.svg         the real claim to citation diagram
+```
+
+## Glossary
+
+- **Card**: the model card document being gated or diffed.
+- **Section**: a `## Heading` and its body.
+- **Claim**: a capability assertion in the Capabilities section.
+- **Result**: an evaluation line in the Results section, an id, a metric, and a
+  value.
+- **Citation**: the `(cites: <eval-id>)` link from a claim to a result.
