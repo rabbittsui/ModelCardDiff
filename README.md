@@ -412,3 +412,16 @@ modelcarddiff/
 - **Result**: an evaluation line in the Results section, an id, a metric, and a
   value.
 - **Citation**: the `(cites: <eval-id>)` link from a claim to a result.
+- **Uncited claim**: a claim with no citation.
+- **Dangling citation**: a citation to an id no result defines.
+- **Bound**: a number in a claim introduced by a comparison word, treated as a
+  threshold rather than an exact value.
+- **Regression**: a result value that moved in the worse direction between
+  versions.
+- **Editorial change**: any change that is not an added claim, a removed
+  limitation, or a regression.
+
+## Integration notes
+
+In continuous integration, run the gate on the card and let the exit code fail
+the job.
