@@ -4,3 +4,4 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "modelcarddiff"
+version = "0.1.0"
