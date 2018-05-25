@@ -9,3 +9,4 @@ description = "Gate and compare model cards against a requirements schema."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
+authors = [{ name = "Xiaoxiao Cui" }]
