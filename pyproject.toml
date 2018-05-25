@@ -5,3 +5,5 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "modelcarddiff"
 version = "0.1.0"
+description = "Gate and compare model cards against a requirements schema."
+readme = "README.md"
