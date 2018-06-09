@@ -17,3 +17,5 @@ classifiers = [
     "Topic :: Software Development :: Quality Assurance",
 ]
 
+[project.scripts]
+modelcarddiff = "modelcarddiff.cli:main"
