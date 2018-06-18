@@ -19,3 +19,5 @@ classifiers = [
 
 [project.scripts]
 modelcarddiff = "modelcarddiff.cli:main"
+
+[tool.setuptools.packages.find]
