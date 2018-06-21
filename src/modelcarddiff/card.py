@@ -20,3 +20,13 @@ A card is Markdown with a small set of conventions:
       <eval-id> = <metric-name> <value>
 
   The value is parsed as a float when possible, otherwise kept as text.
+
+The parser is deliberately forgiving about surrounding whitespace and blank
+lines, and strict about the shape of claim and result lines so that malformed
+input is visible rather than silently dropped.
+"""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass, field
