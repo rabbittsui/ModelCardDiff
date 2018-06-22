@@ -30,3 +30,13 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+
+CLAIM_PREFIX = "claim:"
+_CITES_RE = re.compile(r"\(cites:\s*([^)]+?)\s*\)\s*$")
+_RESULT_RE = re.compile(r"^(?P<eval>[^=]+?)\s*=\s*(?P<metric>\S+)\s+(?P<value>.+?)\s*$")
+
+
+@dataclass(frozen=True)
+class Claim:
+    """A single capability claim.
+
