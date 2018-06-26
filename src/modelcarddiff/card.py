@@ -50,3 +50,13 @@ class Claim:
     line: int
 
 
+@dataclass(frozen=True)
+class Result:
+    """A single evaluation result.
+
+    eval_id is the identifier a claim may cite.
+    metric is the metric name, for example ``accuracy``.
+    value_text is the raw value token as written.
+    value is the float parse of value_text, or None when it is not numeric.
+    line is the 1 based line number in the source card.
+    """
