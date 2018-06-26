@@ -40,3 +40,13 @@ _RESULT_RE = re.compile(r"^(?P<eval>[^=]+?)\s*=\s*(?P<metric>\S+)\s+(?P<value>.+
 class Claim:
     """A single capability claim.
 
+    text is the claim sentence with the ``(cites: ...)`` suffix removed.
+    cites is the referenced evaluation id, or None when the claim cites nothing.
+    line is the 1 based line number in the source card.
+    """
+
+    text: str
+    cites: str | None
+    line: int
+
+
