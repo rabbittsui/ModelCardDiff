@@ -60,3 +60,13 @@ class Result:
     value is the float parse of value_text, or None when it is not numeric.
     line is the 1 based line number in the source card.
     """
+
+    eval_id: str
+    metric: str
+    value_text: str
+    value: float | None
+    line: int
+
+
+@dataclass
+class Section:
