@@ -80,3 +80,13 @@ class Section:
         """True when the section has no non-blank body line."""
         return all(not line.strip() for line in self.body_lines)
 
+    def text(self) -> str:
+        """Return the body joined and stripped, for display and hashing."""
+        return "\n".join(self.body_lines).strip()
+
+
+@dataclass
+class Card:
+    """A parsed model card."""
+
+    title: str
