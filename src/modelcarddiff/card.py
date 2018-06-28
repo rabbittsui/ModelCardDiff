@@ -70,3 +70,13 @@ class Result:
 
 @dataclass
 class Section:
+    """A card section: a heading and its non-empty body lines."""
+
+    name: str
+    body_lines: list[str] = field(default_factory=list)
+
+    @property
+    def is_empty(self) -> bool:
+        """True when the section has no non-blank body line."""
+        return all(not line.strip() for line in self.body_lines)
+
