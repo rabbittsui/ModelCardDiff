@@ -90,3 +90,14 @@ class Card:
     """A parsed model card."""
 
     title: str
+    sections: list[Section]
+    claims: list[Claim]
+    limitations: list[str]
+    results: list[Result]
+
+    def section(self, name: str) -> Section | None:
+        """Return the section matched case insensitively by name, or None."""
+        target = name.strip().lower()
+        for sec in self.sections:
+            if sec.name.strip().lower() == target:
+                return sec
