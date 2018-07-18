@@ -101,3 +101,13 @@ class Card:
         for sec in self.sections:
             if sec.name.strip().lower() == target:
                 return sec
+        return None
+
+    def result_ids(self) -> set[str]:
+        """Return the set of evaluation ids present in Results."""
+        return {r.eval_id for r in self.results}
+
+    def result_by_id(self, eval_id: str) -> Result | None:
+        """Return the result with the given id, or None."""
+        for r in self.results:
+            if r.eval_id == eval_id:
