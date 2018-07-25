@@ -121,3 +121,13 @@ def _strip_bullet(line: str) -> str | None:
     if stripped.startswith("- "):
         return stripped[2:].strip()
     if stripped.startswith("* "):
+        return stripped[2:].strip()
+    return None
+
+
+def _parse_claim(bullet_text: str, line_no: int) -> Claim | None:
+    """Parse a bullet into a Claim, or None when it is not a claim bullet."""
+    if not bullet_text.lower().startswith(CLAIM_PREFIX):
+        return None
+    body = bullet_text[len(CLAIM_PREFIX):].strip()
+    cites: str | None = None
