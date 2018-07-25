@@ -111,3 +111,13 @@ class Card:
         """Return the result with the given id, or None."""
         for r in self.results:
             if r.eval_id == eval_id:
+                return r
+        return None
+
+
+def _strip_bullet(line: str) -> str | None:
+    """Return the bullet text if line is a ``-`` or ``*`` bullet, else None."""
+    stripped = line.strip()
+    if stripped.startswith("- "):
+        return stripped[2:].strip()
+    if stripped.startswith("* "):
