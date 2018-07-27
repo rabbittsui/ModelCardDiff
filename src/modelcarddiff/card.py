@@ -131,3 +131,13 @@ def _parse_claim(bullet_text: str, line_no: int) -> Claim | None:
         return None
     body = bullet_text[len(CLAIM_PREFIX):].strip()
     cites: str | None = None
+    match = _CITES_RE.search(body)
+    if match is not None:
+        cites = match.group(1).strip()
+        body = body[: match.start()].strip()
+    return Claim(text=body, cites=cites, line=line_no)
+
+
+def _parse_result(line: str, line_no: int) -> Result | None:
+    """Parse a Results line into a Result, or None when it does not match."""
+    match = _RESULT_RE.match(line)
