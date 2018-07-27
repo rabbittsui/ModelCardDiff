@@ -141,3 +141,13 @@ def _parse_claim(bullet_text: str, line_no: int) -> Claim | None:
 def _parse_result(line: str, line_no: int) -> Result | None:
     """Parse a Results line into a Result, or None when it does not match."""
     match = _RESULT_RE.match(line)
+    if match is None:
+        return None
+    value_text = match.group("value").strip()
+    try:
+        value: float | None = float(value_text)
+    except ValueError:
+        value = None
+    return Result(
+        eval_id=match.group("eval").strip(),
+        metric=match.group("metric").strip(),
