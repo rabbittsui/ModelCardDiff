@@ -151,3 +151,13 @@ def _parse_result(line: str, line_no: int) -> Result | None:
     return Result(
         eval_id=match.group("eval").strip(),
         metric=match.group("metric").strip(),
+        value_text=value_text,
+        value=value,
+        line=line_no,
+    )
+
+
+def parse(text: str) -> Card:
+    """Parse card text into a Card.
+
+    The parser is single pass. It tracks the current section and, when inside
