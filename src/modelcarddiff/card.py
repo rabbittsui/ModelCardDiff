@@ -161,3 +161,13 @@ def parse(text: str) -> Card:
     """Parse card text into a Card.
 
     The parser is single pass. It tracks the current section and, when inside
+    the Capabilities, Limitations, or Results sections, interprets the lines
+    with the section specific rules.
+    """
+    title = ""
+    sections: list[Section] = []
+    current: Section | None = None
+    claims: list[Claim] = []
+    limitations: list[str] = []
+    results: list[Result] = []
+
