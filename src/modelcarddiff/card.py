@@ -171,3 +171,14 @@ def parse(text: str) -> Card:
     limitations: list[str] = []
     results: list[Result] = []
 
+    lines = text.splitlines()
+    for index, raw in enumerate(lines):
+        line_no = index + 1
+        stripped = raw.strip()
+
+        if stripped.startswith("## "):
+            current = Section(name=stripped[3:].strip())
+            sections.append(current)
+            continue
+        if stripped.startswith("# "):
+            # Card title. Only the first title line is recorded.
