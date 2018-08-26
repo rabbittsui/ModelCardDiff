@@ -182,3 +182,13 @@ def parse(text: str) -> Card:
             continue
         if stripped.startswith("# "):
             # Card title. Only the first title line is recorded.
+            if not title:
+                title = stripped[2:].strip()
+            continue
+
+        if current is not None:
+            current.body_lines.append(raw)
+
+        section_name = current.name.lower() if current is not None else ""
+
+        if section_name == "capabilities":
