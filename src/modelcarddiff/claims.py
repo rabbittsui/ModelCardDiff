@@ -25,3 +25,14 @@ from .card import Card, Claim
 # the words just before it and decide whether it is a bound or an exact value.
 _NUMBER_RE = re.compile(r"\d+(?:\.\d+)?")
 
+# Comparison words that turn a following number into a bound rather than an
+# exact quote of a measured value. A claim of "accuracy above 0.90" states a
+# threshold the model clears, not that the measured accuracy equals 0.90, so it
+# is checked only for the metric it cites, not for an exact value match. A claim
+# of "accuracy of 0.99" quotes an exact value and must match a result.
+_BOUND_WORDS = frozenset(
+    {
+        "above",
+        "below",
+        "under",
+        "over",
