@@ -48,3 +48,15 @@ _BOUND_WORDS = frozenset(
         "around",
         "about",
         "approximately",
+    }
+)
+
+# Words that carry no information on their own. Two limitations that reduce to
+# the same set of remaining words after removing these are treated as the same
+# statement.
+_STOPWORDS = frozenset(
+    {
+        "the",
+        "a",
+        "an",
+        "and",
