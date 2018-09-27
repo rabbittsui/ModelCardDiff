@@ -83,3 +83,15 @@ _STOPWORDS = frozenset(
         "other",
         "they",
         "because",
+    }
+)
+
+
+@dataclass(frozen=True)
+class Citation:
+    """Resolution of a single claim's citation.
+
+    cited_id is the evaluation id the claim references, or None when uncited.
+    resolved is True when cited_id names a result present in the card.
+    """
+
