@@ -106,3 +106,15 @@ class Citation:
 
     @property
     def dangling(self) -> bool:
+        """True when the claim cites an id that no result provides."""
+        return self.cited_id is not None and not self.resolved
+
+
+@dataclass(frozen=True)
+class MetricQuote:
+    """A number quoted in a claim and whether a result carries that value.
+
+    quoted is the numeric token as written in the claim.
+    matched is True when some result value equals the quoted number.
+    """
+
