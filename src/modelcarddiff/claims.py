@@ -118,3 +118,15 @@ class MetricQuote:
     matched is True when some result value equals the quoted number.
     """
 
+    claim: Claim
+    quoted: str
+    matched: bool
+
+
+@dataclass(frozen=True)
+class DuplicateLimitation:
+    """Two limitations that reduce to the same content words."""
+
+    first_index: int
+    second_index: int
+    text: str
