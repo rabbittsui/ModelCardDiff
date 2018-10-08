@@ -142,3 +142,14 @@ def resolve_citations(card: Card) -> list[Citation]:
     citations: list[Citation] = []
     for claim in card.claims:
         if claim.cites is None:
+            citations.append(Citation(claim=claim, cited_id=None, resolved=False))
+        else:
+            citations.append(
+                Citation(
+                    claim=claim,
+                    cited_id=claim.cites,
+                    resolved=claim.cites in ids,
+                )
+            )
+    return citations
+
