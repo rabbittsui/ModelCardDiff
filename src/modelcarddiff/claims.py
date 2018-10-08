@@ -95,3 +95,14 @@ class Citation:
     resolved is True when cited_id names a result present in the card.
     """
 
+    claim: Claim
+    cited_id: str | None
+    resolved: bool
+
+    @property
+    def uncited(self) -> bool:
+        """True when the claim cites nothing."""
+        return self.cited_id is None
+
+    @property
+    def dangling(self) -> bool:
