@@ -130,3 +130,15 @@ class DuplicateLimitation:
     first_index: int
     second_index: int
     text: str
+
+
+def resolve_citations(card: Card) -> list[Citation]:
+    """Resolve every capability claim against the results.
+
+    A claim that cites an id present in the results resolves. A claim that cites
+    an id no result provides is dangling. A claim that cites nothing is uncited.
+    """
+    ids = card.result_ids()
+    citations: list[Citation] = []
+    for claim in card.claims:
+        if claim.cites is None:
