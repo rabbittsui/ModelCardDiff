@@ -153,3 +153,15 @@ def resolve_citations(card: Card) -> list[Citation]:
             )
     return citations
 
+
+def uncited_claims(card: Card) -> list[Claim]:
+    """Return the claims that cite nothing, in card order."""
+    return [c.claim for c in resolve_citations(card) if c.uncited]
+
+
+def dangling_claims(card: Card) -> list[Citation]:
+    """Return citations that reference an id absent from the results."""
+    return [c for c in resolve_citations(card) if c.dangling]
+
+
+def _result_value_strings(card: Card) -> set[str]:
