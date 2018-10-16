@@ -165,3 +165,15 @@ def dangling_claims(card: Card) -> list[Citation]:
 
 
 def _result_value_strings(card: Card) -> set[str]:
+    """Return every result value as a normalized numeric string.
+
+    A value like 0.90 and 0.9 should compare equal, so numeric values are
+    normalized through float and back. Non-numeric values are kept verbatim.
+    """
+    values: set[str] = set()
+    for result in card.results:
+        if result.value is not None:
+            values.add(_normalize_number(result.value))
+        else:
+            values.add(result.value_text)
+    return values
