@@ -188,3 +188,15 @@ def _normalize_number(value: float) -> str:
 
 def metric_quotes(card: Card) -> list[MetricQuote]:
     """Find exact metric values quoted in claims and whether a result has each.
+
+    Only claims that cite a resolvable result are checked, because a quoted
+    value is meant to come from the cited evaluation. A number introduced by a
+    comparison word (above, under, at least, and the like) is a bound, not an
+    exact value, so it is not checked for a value match. A number stated
+    directly, as in "accuracy of 0.99", is an exact quote: if no result carries
+    it, the claim quotes a metric value absent from the results.
+    """
+    ids = card.result_ids()
+    quotes: list[MetricQuote] = []
+    for claim in card.claims:
+        if claim.cites is None or claim.cites not in ids:
