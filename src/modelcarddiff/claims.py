@@ -177,3 +177,14 @@ def _result_value_strings(card: Card) -> set[str]:
         else:
             values.add(result.value_text)
     return values
+
+
+def _normalize_number(value: float) -> str:
+    """Return a canonical string for a float so 0.90 and 0.9 match."""
+    if value == int(value):
+        return str(int(value))
+    return repr(value)
+
+
+def metric_quotes(card: Card) -> list[MetricQuote]:
+    """Find exact metric values quoted in claims and whether a result has each.
