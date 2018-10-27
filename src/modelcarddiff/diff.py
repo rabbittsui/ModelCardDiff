@@ -1,0 +1,16 @@
+"""Version comparison and change classification.
+
+Given two parsed cards, an old and a new version, this module classifies every
+change into one of four kinds:
+
+- ``added-claim``       a capability claim present in new but not old.
+- ``removed-limitation`` a limitation present in old but not new. This is the
+  change most worth catching, because a quietly dropped limitation weakens the
+  honest description of the model without touching a metric.
+- ``metric-regression`` a result value that moved in the worse direction. The
+  direction that counts as worse depends on the metric: for a rate whose name
+  contains ``confusion``, ``error``, ``loss``, or ``latency`` a rise is a
+  regression, and for everything else a fall is a regression.
+- ``editorial``         any other textual change: a reworded claim or
+  limitation, a section body edit, or an added or removed result that is not a
+  regression.
