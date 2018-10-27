@@ -223,3 +223,15 @@ def _exact_numbers(text: str):
     """Yield (token, is_bound) for each number in text.
 
     is_bound is True when the token is introduced by a comparison word, meaning
+    it states a threshold rather than an exact measured value.
+    """
+    words = re.findall(r"[A-Za-z0-9.]+", text)
+    for index, word in enumerate(words):
+        if _NUMBER_RE.fullmatch(word):
+            prev = words[index - 1].lower() if index > 0 else ""
+            yield word, prev in _BOUND_WORDS
+
+
+def unmatched_metric_quotes(card: Card) -> list[MetricQuote]:
+    """Return quoted numbers that no result value matches."""
+    return [q for q in metric_quotes(card) if not q.matched]
