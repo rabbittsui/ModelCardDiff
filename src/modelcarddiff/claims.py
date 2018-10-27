@@ -212,3 +212,14 @@ def metric_quotes(card: Card) -> list[MetricQuote]:
             quotes.append(
                 MetricQuote(
                     claim=claim,
+                    quoted=token,
+                    matched=normalized in available,
+                )
+            )
+    return quotes
+
+
+def _exact_numbers(text: str):
+    """Yield (token, is_bound) for each number in text.
+
+    is_bound is True when the token is introduced by a comparison word, meaning
