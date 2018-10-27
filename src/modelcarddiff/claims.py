@@ -200,3 +200,15 @@ def metric_quotes(card: Card) -> list[MetricQuote]:
     quotes: list[MetricQuote] = []
     for claim in card.claims:
         if claim.cites is None or claim.cites not in ids:
+            continue
+        available = _result_value_strings(card)
+        for token, is_bound in _exact_numbers(claim.text):
+            if is_bound:
+                continue
+            try:
+                normalized = _normalize_number(float(token))
+            except ValueError:
+                continue
+            quotes.append(
+                MetricQuote(
+                    claim=claim,
