@@ -37,3 +37,11 @@ _HIGHER_IS_WORSE = ("confusion", "error", "loss", "latency", "regression")
 
 
 @dataclass(frozen=True)
+class Change:
+    """One classified change between two card versions.
+
+    kind is one of the four change codes above.
+    detail is a human readable description of the change.
+    """
+
+    kind: str
