@@ -22,3 +22,11 @@ by kind for reading.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
+from .card import Card, Result
+
+ADDED_CLAIM = "added-claim"
+REMOVED_LIMITATION = "removed-limitation"
+METRIC_REGRESSION = "metric-regression"
+EDITORIAL = "editorial"
