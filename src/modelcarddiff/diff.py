@@ -30,3 +30,10 @@ ADDED_CLAIM = "added-claim"
 REMOVED_LIMITATION = "removed-limitation"
 METRIC_REGRESSION = "metric-regression"
 EDITORIAL = "editorial"
+
+# Metric name fragments where a higher value is worse. For every other metric a
+# lower value is treated as the regression.
+_HIGHER_IS_WORSE = ("confusion", "error", "loss", "latency", "regression")
+
+
+@dataclass(frozen=True)
