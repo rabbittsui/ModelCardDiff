@@ -45,3 +45,11 @@ class Change:
     """
 
     kind: str
+    detail: str
+
+
+def _metric_higher_is_worse(metric: str, eval_id: str) -> bool:
+    """Return True when a rise in this metric is a regression."""
+    haystack = f"{eval_id} {metric}".lower()
+    return any(fragment in haystack for fragment in _HIGHER_IS_WORSE)
+
