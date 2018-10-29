@@ -14,3 +14,11 @@ change into one of four kinds:
 - ``editorial``         any other textual change: a reworded claim or
   limitation, a section body edit, or an added or removed result that is not a
   regression.
+
+The classification is deterministic and order stable. Metric regressions are
+reported before removed limitations only in code order; the report groups them
+by kind for reading.
+"""
+
+from __future__ import annotations
+
