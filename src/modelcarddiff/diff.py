@@ -61,3 +61,10 @@ def _classify_metric(old: Result, new: Result) -> Change | None:
     a regression and is reported as editorial by the caller when the text
     differs.
     """
+    if old.value is None or new.value is None:
+        return None
+    if new.value == old.value:
+        return None
+    higher_is_worse = _metric_higher_is_worse(new.metric, new.eval_id)
+    worse = new.value > old.value if higher_is_worse else new.value < old.value
+    if not worse:
