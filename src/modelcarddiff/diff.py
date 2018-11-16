@@ -53,3 +53,11 @@ def _metric_higher_is_worse(metric: str, eval_id: str) -> bool:
     haystack = f"{eval_id} {metric}".lower()
     return any(fragment in haystack for fragment in _HIGHER_IS_WORSE)
 
+
+def _classify_metric(old: Result, new: Result) -> Change | None:
+    """Classify a metric change, returning a regression Change or None.
+
+    A non-numeric change, or a numeric change in the improving direction, is not
+    a regression and is reported as editorial by the caller when the text
+    differs.
+    """
