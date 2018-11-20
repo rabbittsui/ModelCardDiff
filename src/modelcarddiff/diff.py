@@ -68,3 +68,11 @@ def _classify_metric(old: Result, new: Result) -> Change | None:
     higher_is_worse = _metric_higher_is_worse(new.metric, new.eval_id)
     worse = new.value > old.value if higher_is_worse else new.value < old.value
     if not worse:
+        return None
+    direction = "rose" if new.value > old.value else "fell"
+    return Change(
+        kind=METRIC_REGRESSION,
+        detail=(
+            f"{new.eval_id} {new.metric} {direction} from {old.value_text} "
+            f"to {new.value_text}"
+        ),
