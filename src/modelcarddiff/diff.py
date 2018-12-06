@@ -76,3 +76,11 @@ def _classify_metric(old: Result, new: Result) -> Change | None:
             f"{new.eval_id} {new.metric} {direction} from {old.value_text} "
             f"to {new.value_text}"
         ),
+    )
+
+
+def diff(old: Card, new: Card) -> list[Change]:
+    """Compare two cards and return the classified changes in a stable order.
+
+    The order is: added claims, removed limitations, metric regressions, then
+    editorial changes. Within each kind the order follows the source cards.
