@@ -91,3 +91,11 @@ def diff(old: Card, new: Card) -> list[Change]:
     editorial: list[Change] = []
 
     old_claims = {c.text for c in old.claims}
+    new_claims = {c.text for c in new.claims}
+
+    for claim in new.claims:
+        if claim.text not in old_claims:
+            added.append(Change(kind=ADDED_CLAIM, detail=claim.text))
+    for claim in old.claims:
+        if claim.text not in new_claims:
+            editorial.append(
