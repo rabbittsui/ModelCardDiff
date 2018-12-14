@@ -84,3 +84,10 @@ def diff(old: Card, new: Card) -> list[Change]:
 
     The order is: added claims, removed limitations, metric regressions, then
     editorial changes. Within each kind the order follows the source cards.
+    """
+    added: list[Change] = []
+    removed: list[Change] = []
+    regressions: list[Change] = []
+    editorial: list[Change] = []
+
+    old_claims = {c.text for c in old.claims}
