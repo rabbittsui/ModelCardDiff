@@ -99,3 +99,11 @@ def diff(old: Card, new: Card) -> list[Change]:
     for claim in old.claims:
         if claim.text not in new_claims:
             editorial.append(
+                Change(kind=EDITORIAL, detail=f"claim removed: {claim.text}")
+            )
+
+    old_lims = list(old.limitations)
+    new_lims_set = set(new.limitations)
+    for limitation in old_lims:
+        if limitation not in new_lims_set:
+            removed.append(Change(kind=REMOVED_LIMITATION, detail=limitation))
