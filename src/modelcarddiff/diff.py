@@ -107,3 +107,10 @@ def diff(old: Card, new: Card) -> list[Change]:
     for limitation in old_lims:
         if limitation not in new_lims_set:
             removed.append(Change(kind=REMOVED_LIMITATION, detail=limitation))
+    old_lims_set = set(old_lims)
+    for limitation in new.limitations:
+        if limitation not in old_lims_set:
+            editorial.append(
+                Change(kind=EDITORIAL, detail=f"limitation added: {limitation}")
+            )
+
