@@ -122,3 +122,11 @@ def diff(old: Card, new: Card) -> list[Change]:
         if old_result is None:
             editorial.append(
                 Change(
+                    kind=EDITORIAL,
+                    detail=(
+                        f"result added: {eval_id} {new_result.metric} "
+                        f"{new_result.value_text}"
+                    ),
+                )
+            )
+            continue
