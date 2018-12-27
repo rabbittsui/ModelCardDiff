@@ -130,3 +130,11 @@ def diff(old: Card, new: Card) -> list[Change]:
                 )
             )
             continue
+        regression = _classify_metric(old_result, new_result)
+        if regression is not None:
+            regressions.append(regression)
+        elif old_result.value_text != new_result.value_text:
+            editorial.append(
+                Change(
+                    kind=EDITORIAL,
+                    detail=(
