@@ -114,3 +114,11 @@ def diff(old: Card, new: Card) -> list[Change]:
                 Change(kind=EDITORIAL, detail=f"limitation added: {limitation}")
             )
 
+    old_results = {r.eval_id: r for r in old.results}
+    new_results = {r.eval_id: r for r in new.results}
+
+    for eval_id, new_result in new_results.items():
+        old_result = old_results.get(eval_id)
+        if old_result is None:
+            editorial.append(
+                Change(
