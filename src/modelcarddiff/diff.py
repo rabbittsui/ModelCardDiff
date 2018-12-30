@@ -138,3 +138,10 @@ def diff(old: Card, new: Card) -> list[Change]:
                 Change(
                     kind=EDITORIAL,
                     detail=(
+                        f"result changed: {eval_id} {new_result.metric} "
+                        f"{old_result.value_text} to {new_result.value_text}"
+                    ),
+                )
+            )
+
+    for eval_id, old_result in old_results.items():
