@@ -9,3 +9,11 @@ Subcommands:
 
 Exit codes: 0 clean, 1 findings present (gate refused or a regression found),
 2 usage error. argparse itself exits with 2 on argument errors, which matches
+the standard.
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
