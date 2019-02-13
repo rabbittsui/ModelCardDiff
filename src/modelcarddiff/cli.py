@@ -17,3 +17,11 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+
+from . import __version__, diff as diff_mod, report
+from .card import parse_file as parse_card_file
+from .gate import gate
+from .schema import SchemaError, parse_file as parse_schema_file
+
+
+def _display_name(path: str) -> str:
