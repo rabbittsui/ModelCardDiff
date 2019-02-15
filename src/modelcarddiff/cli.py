@@ -58,3 +58,11 @@ def _cmd_diff(args: argparse.Namespace) -> int:
 
 def _cmd_claims(args: argparse.Namespace) -> int:
     card = parse_card_file(args.card)
+    _print_lines(report.render_claims(card, _display_name(args.card)))
+    return 0
+
+
+def _cmd_version(args: argparse.Namespace) -> int:
+    print(f"modelcarddiff {__version__}")
+    return 0
+
