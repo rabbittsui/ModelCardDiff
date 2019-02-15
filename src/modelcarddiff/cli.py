@@ -33,3 +33,11 @@ def _print_lines(lines: list[str]) -> None:
     for line in lines:
         print(line)
 
+
+def _cmd_gate(args: argparse.Namespace) -> int:
+    try:
+        schema = parse_schema_file(args.schema)
+    except SchemaError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    card = parse_card_file(args.card)
