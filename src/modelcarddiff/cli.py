@@ -25,3 +25,11 @@ from .schema import SchemaError, parse_file as parse_schema_file
 
 
 def _display_name(path: str) -> str:
+    """Return a stable base name for a path, for use in output lines."""
+    return os.path.basename(path.replace("\\", "/"))
+
+
+def _print_lines(lines: list[str]) -> None:
+    for line in lines:
+        print(line)
+
