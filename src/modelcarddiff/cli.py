@@ -41,3 +41,11 @@ def _cmd_gate(args: argparse.Namespace) -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     card = parse_card_file(args.card)
+    result = gate(card, schema)
+    _print_lines(report.render_gate(result, _display_name(args.card)))
+    return 1 if result.refused else 0
+
+
+def _cmd_diff(args: argparse.Namespace) -> int:
+    old = parse_card_file(args.old)
+    new = parse_card_file(args.new)
