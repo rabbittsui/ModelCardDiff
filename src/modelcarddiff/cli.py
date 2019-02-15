@@ -49,3 +49,12 @@ def _cmd_gate(args: argparse.Namespace) -> int:
 def _cmd_diff(args: argparse.Namespace) -> int:
     old = parse_card_file(args.old)
     new = parse_card_file(args.new)
+    changes = diff_mod.diff(old, new)
+    _print_lines(
+        report.render_diff(changes, _display_name(args.old), _display_name(args.new))
+    )
+    return 1 if diff_mod.has_regression(changes) else 0
+
+
+def _cmd_claims(args: argparse.Namespace) -> int:
+    card = parse_card_file(args.card)
