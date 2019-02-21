@@ -66,3 +66,11 @@ def _cmd_version(args: argparse.Namespace) -> int:
     print(f"modelcarddiff {__version__}")
     return 0
 
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="modelcarddiff",
+        description="Gate and compare model cards against a requirements schema.",
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+
