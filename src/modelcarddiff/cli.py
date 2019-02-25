@@ -74,3 +74,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
+    p_gate = sub.add_parser(
+        "gate", help="check a card against a schema and pass or refuse"
+    )
+    p_gate.add_argument("schema", help="requirements schema file")
+    p_gate.add_argument("card", help="model card file")
+    p_gate.set_defaults(func=_cmd_gate)
+
+    p_diff = sub.add_parser(
