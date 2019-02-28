@@ -82,3 +82,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_gate.set_defaults(func=_cmd_gate)
 
     p_diff = sub.add_parser(
+        "diff", help="compare two card versions and classify each change"
+    )
+    p_diff.add_argument("old", help="older model card file")
+    p_diff.add_argument("new", help="newer model card file")
+    p_diff.set_defaults(func=_cmd_diff)
+
+    p_claims = sub.add_parser(
+        "claims", help="show which evaluation each capability claim cites"
