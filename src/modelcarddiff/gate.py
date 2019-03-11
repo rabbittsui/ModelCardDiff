@@ -11,3 +11,12 @@ The gate runs four checks against a card and a schema:
 
 The gate returns a :class:`GateResult` carrying the ordered list of findings.
 The decision is ``passed`` when there are no findings. Findings are produced in
+a fixed order so identical input yields byte-identical output.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from . import claims as claims_mod
+from .card import Card
