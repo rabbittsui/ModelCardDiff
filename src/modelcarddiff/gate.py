@@ -29,3 +29,12 @@ UNCITED_CLAIM = "uncited-claim"
 DANGLING_CITATION = "dangling-citation"
 UNMATCHED_METRIC = "unmatched-metric"
 DUPLICATE_LIMITATION = "duplicate-limitation"
+
+
+@dataclass(frozen=True)
+class Finding:
+    """A single reason the gate refuses.
+
+    code is one of the stable finding codes above.
+    message is a human readable one line explanation.
+    line is the 1 based source line when known, else 0.
