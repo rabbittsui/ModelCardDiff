@@ -38,3 +38,12 @@ class Finding:
     code is one of the stable finding codes above.
     message is a human readable one line explanation.
     line is the 1 based source line when known, else 0.
+    """
+
+    code: str
+    message: str
+    line: int = 0
+
+
+@dataclass
+class GateResult:
