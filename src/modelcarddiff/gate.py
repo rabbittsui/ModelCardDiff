@@ -20,3 +20,12 @@ from dataclasses import dataclass, field
 
 from . import claims as claims_mod
 from .card import Card
+from .schema import Schema, resolve_sections
+
+# Finding codes. Stable identifiers so reports and tests can refer to them.
+MISSING_SECTION = "missing-section"
+EMPTY_SECTION = "empty-section"
+UNCITED_CLAIM = "uncited-claim"
+DANGLING_CITATION = "dangling-citation"
+UNMATCHED_METRIC = "unmatched-metric"
+DUPLICATE_LIMITATION = "duplicate-limitation"
