@@ -47,3 +47,12 @@ class Finding:
 
 @dataclass
 class GateResult:
+    """The outcome of gating one card."""
+
+    findings: list[Finding] = field(default_factory=list)
+
+    @property
+    def passed(self) -> bool:
+        """True when there are no findings."""
+        return not self.findings
+
