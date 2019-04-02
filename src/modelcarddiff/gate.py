@@ -65,3 +65,12 @@ class GateResult:
 def gate(card: Card, schema: Schema) -> GateResult:
     """Run every check and return the ordered findings."""
     findings: list[Finding] = []
+
+    # 1. Required sections.
+    for status in resolve_sections(schema, card):
+        if not status.present:
+            findings.append(
+                Finding(
+                    code=MISSING_SECTION,
+                    message=f"required section {status.name!r} is missing",
+                )
