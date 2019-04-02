@@ -56,3 +56,12 @@ class GateResult:
         """True when there are no findings."""
         return not self.findings
 
+    @property
+    def refused(self) -> bool:
+        """True when at least one finding was recorded."""
+        return bool(self.findings)
+
+
+def gate(card: Card, schema: Schema) -> GateResult:
+    """Run every check and return the ordered findings."""
+    findings: list[Finding] = []
