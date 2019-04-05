@@ -74,3 +74,12 @@ def gate(card: Card, schema: Schema) -> GateResult:
                     code=MISSING_SECTION,
                     message=f"required section {status.name!r} is missing",
                 )
+            )
+        elif not status.non_empty:
+            findings.append(
+                Finding(
+                    code=EMPTY_SECTION,
+                    message=f"required section {status.name!r} is present but empty",
+                )
+            )
+
