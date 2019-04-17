@@ -83,3 +83,12 @@ def gate(card: Card, schema: Schema) -> GateResult:
                 )
             )
 
+    # 2. Citations: uncited then dangling, each in card order.
+    for claim in claims_mod.uncited_claims(card):
+        findings.append(
+            Finding(
+                code=UNCITED_CLAIM,
+                message=f"claim cites no evaluation: {claim.text}",
+                line=claim.line,
+            )
+        )
