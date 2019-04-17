@@ -92,3 +92,12 @@ def gate(card: Card, schema: Schema) -> GateResult:
                 line=claim.line,
             )
         )
+    for citation in claims_mod.dangling_claims(card):
+        findings.append(
+            Finding(
+                code=DANGLING_CITATION,
+                message=(
+                    f"claim cites {citation.cited_id!r} which is not in results: "
+                    f"{citation.claim.text}"
+                ),
+                line=citation.claim.line,
