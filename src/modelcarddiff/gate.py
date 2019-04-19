@@ -101,3 +101,12 @@ def gate(card: Card, schema: Schema) -> GateResult:
                     f"{citation.claim.text}"
                 ),
                 line=citation.claim.line,
+            )
+        )
+
+    # 3. Metric quotes.
+    for quote in claims_mod.unmatched_metric_quotes(card):
+        findings.append(
+            Finding(
+                code=UNMATCHED_METRIC,
+                message=(
