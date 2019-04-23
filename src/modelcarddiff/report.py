@@ -9,3 +9,11 @@ same lines in the same order.
 from __future__ import annotations
 
 from .card import Card
+from .claims import Citation, resolve_citations
+from .diff import (
+    ADDED_CLAIM,
+    EDITORIAL,
+    METRIC_REGRESSION,
+    REMOVED_LIMITATION,
+    Change,
+)
