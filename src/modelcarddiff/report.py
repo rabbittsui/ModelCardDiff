@@ -17,3 +17,11 @@ from .diff import (
     REMOVED_LIMITATION,
     Change,
 )
+from .gate import GateResult
+
+_CHANGE_LABELS = {
+    ADDED_CLAIM: "added claim",
+    REMOVED_LIMITATION: "removed limitation",
+    METRIC_REGRESSION: "metric regression",
+    EDITORIAL: "editorial",
+}
