@@ -25,3 +25,11 @@ _CHANGE_LABELS = {
     METRIC_REGRESSION: "metric regression",
     EDITORIAL: "editorial",
 }
+
+
+def render_gate(result: GateResult, card_name: str) -> list[str]:
+    """Render a gate result.
+
+    On pass, a single PASS line. On refuse, a REFUSE line with the count
+    followed by one indented line per finding, each prefixed by its code.
+    """
