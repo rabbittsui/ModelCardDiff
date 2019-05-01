@@ -41,3 +41,11 @@ def render_gate(result: GateResult, card_name: str) -> list[str]:
         lines.append(f"  [{finding.code}]{location} {finding.message}")
     return lines
 
+
+def render_claims(card: Card, card_name: str) -> list[str]:
+    """Render the claim to citation table for a card.
+
+    One line per claim showing whether it is cited, dangling, or resolved, and
+    the evaluation it points at. A trailing summary counts each kind.
+    """
+    citations = resolve_citations(card)
