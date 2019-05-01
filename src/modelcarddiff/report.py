@@ -65,3 +65,11 @@ def render_claims(card: Card, card_name: str) -> list[str]:
         f"summary: {resolved} resolved, {uncited} uncited, {dangling} dangling"
     )
     return lines
+
+
+def _claim_line(citation: Citation) -> str:
+    """Render one claim citation line."""
+    if citation.uncited:
+        status = "UNCITED"
+        target = "-"
+    elif citation.dangling:
