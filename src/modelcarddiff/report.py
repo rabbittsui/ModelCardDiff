@@ -49,3 +49,11 @@ def render_claims(card: Card, card_name: str) -> list[str]:
     the evaluation it points at. A trailing summary counts each kind.
     """
     citations = resolve_citations(card)
+    lines = [f"claims for {card_name}: {len(citations)}"]
+    resolved = 0
+    uncited = 0
+    dangling = 0
+    for citation in citations:
+        lines.append(_claim_line(citation))
+        if citation.uncited:
+            uncited += 1
