@@ -33,3 +33,11 @@ def render_gate(result: GateResult, card_name: str) -> list[str]:
     On pass, a single PASS line. On refuse, a REFUSE line with the count
     followed by one indented line per finding, each prefixed by its code.
     """
+    if result.passed:
+        return [f"PASS {card_name}: all checks satisfied"]
+    lines = [f"REFUSE {card_name}: {len(result.findings)} finding(s)"]
+    for finding in result.findings:
+        location = f" (line {finding.line})" if finding.line else ""
+        lines.append(f"  [{finding.code}]{location} {finding.message}")
+    return lines
+
