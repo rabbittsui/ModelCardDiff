@@ -73,3 +73,10 @@ def _claim_line(citation: Citation) -> str:
         status = "UNCITED"
         target = "-"
     elif citation.dangling:
+        status = "DANGLING"
+        target = citation.cited_id or "-"
+    else:
+        status = "CITES"
+        target = citation.cited_id or "-"
+    return f"  {status:<8} {target:<28} {citation.claim.text}"
+
