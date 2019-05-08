@@ -80,3 +80,11 @@ def _claim_line(citation: Citation) -> str:
         target = citation.cited_id or "-"
     return f"  {status:<8} {target:<28} {citation.claim.text}"
 
+
+def render_diff(changes: list[Change], old_name: str, new_name: str) -> list[str]:
+    """Render the classified changes between two versions.
+
+    A header names the two versions. Each change is one line prefixed by its
+    kind label. A trailing summary counts each kind so a reader sees at a glance
+    whether a limitation was dropped or a metric regressed.
+    """
