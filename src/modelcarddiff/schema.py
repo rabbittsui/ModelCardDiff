@@ -16,3 +16,11 @@ metric checks in :mod:`modelcarddiff.gate`.
 """
 
 from __future__ import annotations
+
+from dataclasses import dataclass
+
+from .card import Card
+
+REQUIRE_DIRECTIVE = "require"
+
+
