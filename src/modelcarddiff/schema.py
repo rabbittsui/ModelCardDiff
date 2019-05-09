@@ -8,3 +8,11 @@ One directive per line. Blank lines and lines beginning with ``#`` are ignored::
     require <Section Name>
 
 Each ``require`` names a section that must exist in the card and must be
+non-empty. Section names are matched case insensitively.
+
+The schema is intentionally small. It answers one question: which sections must
+a conforming card contain. The gate combines that answer with the claim and
+metric checks in :mod:`modelcarddiff.gate`.
+"""
+
+from __future__ import annotations
