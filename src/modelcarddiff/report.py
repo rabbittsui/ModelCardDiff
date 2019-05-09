@@ -88,3 +88,11 @@ def render_diff(changes: list[Change], old_name: str, new_name: str) -> list[str
     kind label. A trailing summary counts each kind so a reader sees at a glance
     whether a limitation was dropped or a metric regressed.
     """
+    lines = [f"diff {old_name} -> {new_name}: {len(changes)} change(s)"]
+    for change in changes:
+        label = _CHANGE_LABELS.get(change.kind, change.kind)
+        lines.append(f"  [{label}] {change.detail}")
+    counts = _count_kinds(changes)
+    lines.append(
+        "summary: "
+        + ", ".join(
