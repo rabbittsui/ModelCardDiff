@@ -24,3 +24,11 @@ from .card import Card
 REQUIRE_DIRECTIVE = "require"
 
 
+@dataclass(frozen=True)
+class Schema:
+    """A requirements schema: an ordered list of required section names."""
+
+    required_sections: tuple[str, ...]
+
+
+class SchemaError(ValueError):
