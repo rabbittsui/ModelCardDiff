@@ -40,3 +40,11 @@ def parse(text: str) -> Schema:
 
     Duplicate ``require`` directives are collapsed while preserving first-seen
     order, so a schema that lists a section twice does not report it twice.
+    """
+    required: list[str] = []
+    seen: set[str] = set()
+    for index, raw in enumerate(text.splitlines()):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split(None, 1)
