@@ -32,3 +32,11 @@ class Schema:
 
 
 class SchemaError(ValueError):
+    """Raised when a schema line cannot be understood."""
+
+
+def parse(text: str) -> Schema:
+    """Parse schema text into a Schema.
+
+    Duplicate ``require`` directives are collapsed while preserving first-seen
+    order, so a schema that lists a section twice does not report it twice.
