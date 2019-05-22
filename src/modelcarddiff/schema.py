@@ -48,3 +48,11 @@ def parse(text: str) -> Schema:
         if not line or line.startswith("#"):
             continue
         parts = line.split(None, 1)
+        directive = parts[0].lower()
+        if directive != REQUIRE_DIRECTIVE:
+            raise SchemaError(
+                f"line {index + 1}: unknown directive {parts[0]!r}, "
+                f"expected {REQUIRE_DIRECTIVE!r}"
+            )
+        if len(parts) < 2 or not parts[1].strip():
+            raise SchemaError(f"line {index + 1}: require needs a section name")
