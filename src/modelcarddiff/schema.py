@@ -56,3 +56,10 @@ def parse(text: str) -> Schema:
             )
         if len(parts) < 2 or not parts[1].strip():
             raise SchemaError(f"line {index + 1}: require needs a section name")
+        name = parts[1].strip()
+        key = name.lower()
+        if key not in seen:
+            seen.add(key)
+            required.append(name)
+    return Schema(required_sections=tuple(required))
+
