@@ -71,3 +71,11 @@ def parse_file(path: str) -> Schema:
 
 
 @dataclass(frozen=True)
+class SectionStatus:
+    """Resolution of one required section against a card.
+
+    present is True when the card has a section with the required name.
+    non_empty is True when that section has a non-blank body.
+    """
+
+    name: str
