@@ -63,3 +63,11 @@ def parse(text: str) -> Schema:
             required.append(name)
     return Schema(required_sections=tuple(required))
 
+
+def parse_file(path: str) -> Schema:
+    """Read and parse a schema file using UTF-8."""
+    with open(path, "r", encoding="utf-8") as handle:
+        return parse(handle.read())
+
+
+@dataclass(frozen=True)
