@@ -79,3 +79,11 @@ class SectionStatus:
     """
 
     name: str
+    present: bool
+    non_empty: bool
+
+    @property
+    def satisfied(self) -> bool:
+        """A required section is satisfied when it is present and non-empty."""
+        return self.present and self.non_empty
+
