@@ -19,3 +19,8 @@ class ParseTests(unittest.TestCase):
 
     def test_claim_with_citation(self):
         text = (
+            "## Capabilities\n"
+            "- claim: does a thing well. (cites: eval-thing)\n"
+        )
+        parsed = card.parse(text)
+        self.assertEqual(len(parsed.claims), 1)
