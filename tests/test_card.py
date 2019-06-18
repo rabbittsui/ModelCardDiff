@@ -14,3 +14,8 @@ class ParseTests(unittest.TestCase):
         parsed = card.parse(text)
         self.assertEqual(parsed.title, "Model Card: x")
         self.assertIsNotNone(parsed.section("Overview"))
+        self.assertIsNotNone(parsed.section("results"))
+        self.assertIsNone(parsed.section("Missing"))
+
+    def test_claim_with_citation(self):
+        text = (
