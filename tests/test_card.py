@@ -24,3 +24,8 @@ class ParseTests(unittest.TestCase):
         )
         parsed = card.parse(text)
         self.assertEqual(len(parsed.claims), 1)
+        claim = parsed.claims[0]
+        self.assertEqual(claim.cites, "eval-thing")
+        self.assertEqual(claim.text, "does a thing well.")
+
+    def test_claim_without_citation_is_uncited(self):
