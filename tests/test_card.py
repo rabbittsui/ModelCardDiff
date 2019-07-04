@@ -29,3 +29,8 @@ class ParseTests(unittest.TestCase):
         self.assertEqual(claim.text, "does a thing well.")
 
     def test_claim_without_citation_is_uncited(self):
+        text = "## Capabilities\n- claim: uses little memory.\n"
+        parsed = card.parse(text)
+        self.assertEqual(len(parsed.claims), 1)
+        self.assertIsNone(parsed.claims[0].cites)
+
