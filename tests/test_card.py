@@ -34,3 +34,8 @@ class ParseTests(unittest.TestCase):
         self.assertEqual(len(parsed.claims), 1)
         self.assertIsNone(parsed.claims[0].cites)
 
+    def test_results_numeric_and_text(self):
+        text = "## Results\n\nid-a = accuracy 0.93\nid-b = note high\n"
+        parsed = card.parse(text)
+        self.assertEqual(len(parsed.results), 2)
+        a = parsed.result_by_id("id-a")
