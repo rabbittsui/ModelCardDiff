@@ -39,3 +39,8 @@ class ParseTests(unittest.TestCase):
         parsed = card.parse(text)
         self.assertEqual(len(parsed.results), 2)
         a = parsed.result_by_id("id-a")
+        self.assertEqual(a.metric, "accuracy")
+        self.assertEqual(a.value, 0.93)
+        b = parsed.result_by_id("id-b")
+        self.assertIsNone(b.value)
+        self.assertEqual(b.value_text, "high")
