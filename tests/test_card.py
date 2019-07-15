@@ -44,3 +44,8 @@ class ParseTests(unittest.TestCase):
         b = parsed.result_by_id("id-b")
         self.assertIsNone(b.value)
         self.assertEqual(b.value_text, "high")
+
+    def test_empty_section_detection(self):
+        text = "## Overview\n\n\n## Results\n\nid = m 1\n"
+        parsed = card.parse(text)
+        self.assertTrue(parsed.section("Overview").is_empty)
