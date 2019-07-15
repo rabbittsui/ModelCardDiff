@@ -49,3 +49,8 @@ class ParseTests(unittest.TestCase):
         text = "## Overview\n\n\n## Results\n\nid = m 1\n"
         parsed = card.parse(text)
         self.assertTrue(parsed.section("Overview").is_empty)
+        self.assertFalse(parsed.section("Results").is_empty)
+
+    def test_limitations_collected(self):
+        text = "## Limitations\n\n- one thing\n- another thing\n"
+        parsed = card.parse(text)
