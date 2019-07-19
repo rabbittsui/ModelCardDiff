@@ -19,3 +19,10 @@ class CitationTests(unittest.TestCase):
         self.assertFalse(cites[0].dangling)
 
     def test_uncited_claim(self):
+        parsed = card.parse("## Capabilities\n- claim: no reference here\n")
+        self.assertEqual(len(claims.uncited_claims(parsed)), 1)
+
+    def test_dangling_citation(self):
+        parsed = card.parse(
+            "## Capabilities\n- claim: t (cites: missing)\n## Results\ne = m 1\n"
+        )
