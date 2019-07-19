@@ -13,3 +13,9 @@ class CitationTests(unittest.TestCase):
         parsed = card.parse(
             "## Capabilities\n- claim: t (cites: e)\n## Results\ne = m 1\n"
         )
+        cites = claims.resolve_citations(parsed)
+        self.assertTrue(cites[0].resolved)
+        self.assertFalse(cites[0].uncited)
+        self.assertFalse(cites[0].dangling)
+
+    def test_uncited_claim(self):
