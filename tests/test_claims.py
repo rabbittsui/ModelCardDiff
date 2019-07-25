@@ -26,3 +26,9 @@ class CitationTests(unittest.TestCase):
         parsed = card.parse(
             "## Capabilities\n- claim: t (cites: missing)\n## Results\ne = m 1\n"
         )
+        dangling = claims.dangling_claims(parsed)
+        self.assertEqual(len(dangling), 1)
+        self.assertEqual(dangling[0].cited_id, "missing")
+
+
+class MetricQuoteTests(unittest.TestCase):
