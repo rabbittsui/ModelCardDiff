@@ -32,3 +32,10 @@ class CitationTests(unittest.TestCase):
 
 
 class MetricQuoteTests(unittest.TestCase):
+    def test_bound_phrasing_not_flagged(self):
+        parsed = card.parse(
+            "## Capabilities\n- claim: accuracy above 0.99 (cites: e)\n"
+            "## Results\ne = accuracy 0.9\n"
+        )
+        self.assertEqual(claims.unmatched_metric_quotes(parsed), [])
+
