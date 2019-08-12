@@ -39,3 +39,9 @@ class MetricQuoteTests(unittest.TestCase):
         )
         self.assertEqual(claims.unmatched_metric_quotes(parsed), [])
 
+    def test_exact_value_present(self):
+        parsed = card.parse(
+            "## Capabilities\n- claim: accuracy of 0.9 (cites: e)\n"
+            "## Results\ne = accuracy 0.9\n"
+        )
+        self.assertEqual(claims.unmatched_metric_quotes(parsed), [])
