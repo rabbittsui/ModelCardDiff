@@ -58,3 +58,10 @@ class MetricQuoteTests(unittest.TestCase):
     def test_uncited_claim_not_metric_checked(self):
         parsed = card.parse("## Capabilities\n- claim: accuracy of 0.99\n")
         self.assertEqual(claims.unmatched_metric_quotes(parsed), [])
+
+
+class DistinctLimitationTests(unittest.TestCase):
+    def test_distinct_limitations_no_duplicates(self):
+        parsed = card.parse(
+            "## Limitations\n- English only input\n- truncates long messages\n"
+        )
