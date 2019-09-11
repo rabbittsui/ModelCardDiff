@@ -65,3 +65,9 @@ class DistinctLimitationTests(unittest.TestCase):
         parsed = card.parse(
             "## Limitations\n- English only input\n- truncates long messages\n"
         )
+        self.assertEqual(claims.duplicate_limitations(parsed), [])
+
+    def test_reworded_boilerplate_detected(self):
+        parsed = card.parse(
+            "## Limitations\n"
+            "- The model may not work in all cases.\n"
