@@ -15,3 +15,8 @@ Initial release.
   limitation, a metric regression, or an editorial change.
 - CLI subcommands: gate, diff, claims, version.
 - Exit codes: 0 clean, 1 findings present, 2 usage error.
+- Sample fixtures: a complete card, an incomplete card, and a second version of
+  the complete card for the diff.
+- Claim citation diagram and a wordmark logo.
+
+<!-- draft note 1 -->
