@@ -10,3 +10,8 @@ from modelcarddiff import cli
 SAMPLES = os.path.join(os.path.dirname(__file__), "..", "samples")
 
 
+def _run(argv):
+    out = io.StringIO()
+    with redirect_stdout(out):
+        code = cli.main(argv)
+    return code, out.getvalue()
