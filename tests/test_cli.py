@@ -15,3 +15,9 @@ def _run(argv):
     with redirect_stdout(out):
         code = cli.main(argv)
     return code, out.getvalue()
+
+
+class CliTests(unittest.TestCase):
+    def test_gate_complete_exit_zero(self):
+        code, out = _run(
+            ["gate", os.path.join(SAMPLES, "schema.txt"), os.path.join(SAMPLES, "complete.card")]
