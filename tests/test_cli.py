@@ -26,3 +26,9 @@ class CliTests(unittest.TestCase):
         self.assertIn("PASS", out)
 
     def test_gate_incomplete_exit_one(self):
+        code, out = _run(
+            ["gate", os.path.join(SAMPLES, "schema.txt"), os.path.join(SAMPLES, "incomplete.card")]
+        )
+        self.assertEqual(code, 1)
+        self.assertIn("REFUSE", out)
+
