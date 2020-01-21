@@ -32,3 +32,8 @@ class CliTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn("REFUSE", out)
 
+    def test_diff_regression_exit_one(self):
+        code, out = _run(
+            ["diff", os.path.join(SAMPLES, "complete.card"), os.path.join(SAMPLES, "complete-v2.card")]
+        )
+        self.assertEqual(code, 1)
