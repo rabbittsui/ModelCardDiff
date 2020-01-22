@@ -37,3 +37,9 @@ class CliTests(unittest.TestCase):
             ["diff", os.path.join(SAMPLES, "complete.card"), os.path.join(SAMPLES, "complete-v2.card")]
         )
         self.assertEqual(code, 1)
+        self.assertIn("removed limitation", out)
+        self.assertIn("metric regression", out)
+
+    def test_diff_identical_exit_zero(self):
+        code, out = _run(
+            ["diff", os.path.join(SAMPLES, "complete.card"), os.path.join(SAMPLES, "complete.card")]
