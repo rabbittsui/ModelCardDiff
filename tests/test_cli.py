@@ -43,3 +43,8 @@ class CliTests(unittest.TestCase):
     def test_diff_identical_exit_zero(self):
         code, out = _run(
             ["diff", os.path.join(SAMPLES, "complete.card"), os.path.join(SAMPLES, "complete.card")]
+        )
+        self.assertEqual(code, 0)
+
+    def test_claims_exit_zero(self):
+        code, out = _run(["claims", os.path.join(SAMPLES, "complete.card")])
