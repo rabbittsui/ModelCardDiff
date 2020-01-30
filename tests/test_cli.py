@@ -48,3 +48,9 @@ class CliTests(unittest.TestCase):
 
     def test_claims_exit_zero(self):
         code, out = _run(["claims", os.path.join(SAMPLES, "complete.card")])
+        self.assertEqual(code, 0)
+        self.assertIn("CITES", out)
+
+    def test_claims_incomplete_shows_uncited(self):
+        code, out = _run(["claims", os.path.join(SAMPLES, "incomplete.card")])
+        self.assertEqual(code, 0)
