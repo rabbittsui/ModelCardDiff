@@ -9,3 +9,7 @@ SAMPLES = os.path.join(os.path.dirname(__file__), "..", "samples")
 
 
 def _load(name):
+    return card.parse_file(os.path.join(SAMPLES, name))
+
+
+class DiffTests(unittest.TestCase):
