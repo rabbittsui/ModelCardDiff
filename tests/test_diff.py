@@ -13,3 +13,8 @@ def _load(name):
 
 
 class DiffTests(unittest.TestCase):
+    def setUp(self):
+        self.old = _load("complete.card")
+        self.new = _load("complete-v2.card")
+        self.changes = diff.diff(self.old, self.new)
+
