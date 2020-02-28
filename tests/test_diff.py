@@ -18,3 +18,8 @@ class DiffTests(unittest.TestCase):
         self.new = _load("complete-v2.card")
         self.changes = diff.diff(self.old, self.new)
 
+    def test_detects_added_claim(self):
+        added = [c for c in self.changes if c.kind == diff.ADDED_CLAIM]
+        self.assertEqual(len(added), 1)
+        self.assertIn("escalation", added[0].detail)
+
