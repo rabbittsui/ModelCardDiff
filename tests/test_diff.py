@@ -23,3 +23,8 @@ class DiffTests(unittest.TestCase):
         self.assertEqual(len(added), 1)
         self.assertIn("escalation", added[0].detail)
 
+    def test_detects_removed_limitation(self):
+        removed = [c for c in self.changes if c.kind == diff.REMOVED_LIMITATION]
+        self.assertEqual(len(removed), 1)
+        self.assertIn("refund and billing", removed[0].detail)
+        self.assertTrue(diff.has_removed_limitation(self.changes))
