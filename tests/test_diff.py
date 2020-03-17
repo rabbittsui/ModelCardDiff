@@ -47,3 +47,8 @@ class DiffTests(unittest.TestCase):
         new = card.parse("## Results\neval-confusion = rate 0.14\n")
         changes = diff.diff(old, new)
         self.assertTrue(diff.has_regression(changes))
+
+    def test_accuracy_rise_is_not_regression(self):
+        old = card.parse("## Results\ne = accuracy 0.90\n")
+        new = card.parse("## Results\ne = accuracy 0.95\n")
+        changes = diff.diff(old, new)
