@@ -33,3 +33,7 @@ class DiffTests(unittest.TestCase):
         regressions = [c for c in self.changes if c.kind == diff.METRIC_REGRESSION]
         details = " ".join(c.detail for c in regressions)
         self.assertIn("eval-intent-accuracy", details)
+        self.assertIn("eval-refund-billing-confusion", details)
+        self.assertTrue(diff.has_regression(self.changes))
+
+    def test_accuracy_fall_is_regression(self):
