@@ -37,3 +37,8 @@ class DiffTests(unittest.TestCase):
         self.assertTrue(diff.has_regression(self.changes))
 
     def test_accuracy_fall_is_regression(self):
+        old = card.parse("## Results\ne = accuracy 0.93\n")
+        new = card.parse("## Results\ne = accuracy 0.91\n")
+        changes = diff.diff(old, new)
+        self.assertTrue(diff.has_regression(changes))
+
