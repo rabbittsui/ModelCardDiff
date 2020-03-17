@@ -28,3 +28,8 @@ class DiffTests(unittest.TestCase):
         self.assertEqual(len(removed), 1)
         self.assertIn("refund and billing", removed[0].detail)
         self.assertTrue(diff.has_removed_limitation(self.changes))
+
+    def test_detects_metric_regression(self):
+        regressions = [c for c in self.changes if c.kind == diff.METRIC_REGRESSION]
+        details = " ".join(c.detail for c in regressions)
+        self.assertIn("eval-intent-accuracy", details)
