@@ -10,3 +10,8 @@ SAMPLES = os.path.join(os.path.dirname(__file__), "..", "samples")
 
 def _load(name):
     return card.parse_file(os.path.join(SAMPLES, name))
+
+
+class GateTests(unittest.TestCase):
+    def setUp(self):
+        self.schema = schema.parse_file(os.path.join(SAMPLES, "schema.txt"))
