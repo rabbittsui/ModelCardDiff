@@ -15,3 +15,8 @@ def _load(name):
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.schema = schema.parse_file(os.path.join(SAMPLES, "schema.txt"))
+
+    def test_complete_card_passes(self):
+        result = gate.gate(_load("complete.card"), self.schema)
+        self.assertTrue(result.passed)
+        self.assertEqual(result.findings, [])
