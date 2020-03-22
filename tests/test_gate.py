@@ -20,3 +20,9 @@ class GateTests(unittest.TestCase):
         result = gate.gate(_load("complete.card"), self.schema)
         self.assertTrue(result.passed)
         self.assertEqual(result.findings, [])
+
+    def test_incomplete_card_refuses(self):
+        result = gate.gate(_load("incomplete.card"), self.schema)
+        self.assertTrue(result.refused)
+        codes = {f.code for f in result.findings}
+        self.assertIn(gate.MISSING_SECTION, codes)
