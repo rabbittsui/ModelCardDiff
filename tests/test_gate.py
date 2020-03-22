@@ -37,3 +37,8 @@ class GateTests(unittest.TestCase):
         self.assertEqual(result.findings[0].code, gate.MISSING_SECTION)
 
     def test_empty_section_reported(self):
+        sch = schema.parse("require Overview\n")
+        parsed = card.parse("## Overview\n\n\n")
+        result = gate.gate(parsed, sch)
+        self.assertEqual(result.findings[0].code, gate.EMPTY_SECTION)
+
