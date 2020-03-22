@@ -42,3 +42,8 @@ class GateTests(unittest.TestCase):
         result = gate.gate(parsed, sch)
         self.assertEqual(result.findings[0].code, gate.EMPTY_SECTION)
 
+    def test_unmatched_metric_reported(self):
+        sch = schema.parse("require Capabilities\nrequire Results\n")
+        parsed = card.parse(
+            "## Capabilities\n- claim: accuracy is 0.99 (cites: e)\n"
+            "## Results\ne = accuracy 0.90\n"
