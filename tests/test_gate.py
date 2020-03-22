@@ -26,3 +26,8 @@ class GateTests(unittest.TestCase):
         self.assertTrue(result.refused)
         codes = {f.code for f in result.findings}
         self.assertIn(gate.MISSING_SECTION, codes)
+        self.assertIn(gate.UNCITED_CLAIM, codes)
+        self.assertIn(gate.DANGLING_CITATION, codes)
+
+    def test_missing_section_reported(self):
+        sch = schema.parse("require Overview\nrequire Limitations\n")
