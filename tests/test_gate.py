@@ -47,3 +47,9 @@ class GateTests(unittest.TestCase):
         parsed = card.parse(
             "## Capabilities\n- claim: accuracy is 0.99 (cites: e)\n"
             "## Results\ne = accuracy 0.90\n"
+        )
+        result = gate.gate(parsed, sch)
+        codes = {f.code for f in result.findings}
+        self.assertIn(gate.UNMATCHED_METRIC, codes)
+
+    def test_deterministic_output(self):
