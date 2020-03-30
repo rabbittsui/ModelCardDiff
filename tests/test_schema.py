@@ -3,3 +3,7 @@
 import os
 import unittest
 
+from modelcarddiff import card, schema
+
+SAMPLES = os.path.join(os.path.dirname(__file__), "..", "samples")
+
