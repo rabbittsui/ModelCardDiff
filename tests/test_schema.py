@@ -25,3 +25,7 @@ class SchemaTests(unittest.TestCase):
         with self.assertRaises(schema.SchemaError):
             schema.parse("allow Overview\n")
 
+    def test_require_without_name_raises(self):
+        with self.assertRaises(schema.SchemaError):
+            schema.parse("require\n")
+
