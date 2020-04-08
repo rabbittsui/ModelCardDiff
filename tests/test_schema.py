@@ -21,3 +21,7 @@ class SchemaTests(unittest.TestCase):
         parsed = schema.parse("require Overview\nrequire overview\n")
         self.assertEqual(parsed.required_sections, ("Overview",))
 
+    def test_unknown_directive_raises(self):
+        with self.assertRaises(schema.SchemaError):
+            schema.parse("allow Overview\n")
+
