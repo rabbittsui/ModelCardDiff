@@ -12,3 +12,7 @@ class SchemaTests(unittest.TestCase):
     def test_parse_requires(self):
         parsed = schema.parse("require Overview\nrequire Results\n")
         self.assertEqual(parsed.required_sections, ("Overview", "Results"))
+
+    def test_comments_and_blanks_ignored(self):
+        parsed = schema.parse("# a comment\n\nrequire Overview\n")
+        self.assertEqual(parsed.required_sections, ("Overview",))
