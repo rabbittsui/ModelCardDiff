@@ -16,3 +16,8 @@ class SchemaTests(unittest.TestCase):
     def test_comments_and_blanks_ignored(self):
         parsed = schema.parse("# a comment\n\nrequire Overview\n")
         self.assertEqual(parsed.required_sections, ("Overview",))
+
+    def test_duplicate_require_collapsed(self):
+        parsed = schema.parse("require Overview\nrequire overview\n")
+        self.assertEqual(parsed.required_sections, ("Overview",))
+
