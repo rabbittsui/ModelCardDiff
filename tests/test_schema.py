@@ -29,3 +29,8 @@ class SchemaTests(unittest.TestCase):
         with self.assertRaises(schema.SchemaError):
             schema.parse("require\n")
 
+    def test_resolve_missing_and_present(self):
+        sch = schema.parse("require Overview\nrequire Limitations\n")
+        parsed = card.parse("## Overview\n\nbody\n")
+        statuses = schema.resolve_sections(sch, parsed)
+        by_name = {s.name: s for s in statuses}
