@@ -38,3 +38,8 @@ class SchemaTests(unittest.TestCase):
         self.assertFalse(by_name["Limitations"].present)
 
     def test_resolve_empty_section_not_satisfied(self):
+        sch = schema.parse("require Overview\n")
+        parsed = card.parse("## Overview\n\n\n")
+        status = schema.resolve_sections(sch, parsed)[0]
+        self.assertTrue(status.present)
+        self.assertFalse(status.non_empty)
