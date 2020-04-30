@@ -34,3 +34,7 @@ class SchemaTests(unittest.TestCase):
         parsed = card.parse("## Overview\n\nbody\n")
         statuses = schema.resolve_sections(sch, parsed)
         by_name = {s.name: s for s in statuses}
+        self.assertTrue(by_name["Overview"].satisfied)
+        self.assertFalse(by_name["Limitations"].present)
+
+    def test_resolve_empty_section_not_satisfied(self):
