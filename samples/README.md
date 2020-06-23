@@ -18,3 +18,7 @@ model.
   `eval-sota`, an evaluation that never appears in the Results section.
 - `complete-v2.card` a second version of the complete card used for the diff.
   Relative to `complete.card` it adds one capability claim (the escalation
+  intent), quietly drops one limitation (the refund and billing confusion
+  note), and regresses two metrics (intent accuracy from 0.93 to 0.91, and the
+  refund billing confusion rate from 0.11 to 0.14, where a higher confusion
+  rate is worse).
