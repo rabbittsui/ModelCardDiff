@@ -14,3 +14,7 @@ model.
   results.
 - `incomplete.card` a card that the gate refuses. It omits the required
   Limitations section, includes one capability claim that cites nothing
+  (the 64 megabytes memory claim), and includes one claim that cites
+  `eval-sota`, an evaluation that never appears in the Results section.
+- `complete-v2.card` a second version of the complete card used for the diff.
+  Relative to `complete.card` it adds one capability claim (the escalation
