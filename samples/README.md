@@ -22,3 +22,7 @@ model.
   note), and regresses two metrics (intent accuracy from 0.93 to 0.91, and the
   refund billing confusion rate from 0.11 to 0.14, where a higher confusion
   rate is worse).
+
+## Card format
+
+A card is Markdown with these conventions:
