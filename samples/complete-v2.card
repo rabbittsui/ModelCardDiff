@@ -9,3 +9,6 @@ support transcripts and evaluated on a held out split from the same source.
 ## Intended Use
 
 The model is intended for triage of inbound support messages in English. It
+should not be used as the sole decision maker for account actions.
+
+## Capabilities
