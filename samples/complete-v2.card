@@ -20,3 +20,7 @@ should not be used as the sole decision maker for account actions.
 
 ## Limitations
 
+- Trained only on English transcripts, so non English input is out of scope.
+- Accuracy drops on messages longer than 512 tokens because they are truncated.
+- Latency figures assume a warm process and do not include cold start cost.
+
