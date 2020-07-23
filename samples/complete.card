@@ -4,3 +4,7 @@
 
 cardsort-base-v1 is a text classification model that routes short support
 messages into one of eight intent categories. It is trained on internal
+support transcripts and evaluated on a held out split from the same source.
+
+## Intended Use
+
