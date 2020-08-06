@@ -19,3 +19,7 @@ should not be used as the sole decision maker for account actions.
 
 ## Limitations
 
+- Trained only on English transcripts, so non English input is out of scope.
+- Accuracy drops on messages longer than 512 tokens because they are truncated.
+- The refund and billing classes share vocabulary and are confused more often than other pairs.
+- Latency figures assume a warm process and do not include cold start cost.
