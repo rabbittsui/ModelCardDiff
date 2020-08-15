@@ -5,3 +5,6 @@
 cardsort-mini-v1 is a smaller variant of the intent classifier meant for edge
 deployment. This card is deliberately incomplete: it omits a required section
 and makes a capability claim that cites nothing in the results.
+
+## Intended Use
+
