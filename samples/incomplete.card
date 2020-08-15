@@ -11,3 +11,6 @@ and makes a capability claim that cites nothing in the results.
 The model is intended for on device triage where network access is limited.
 
 ## Capabilities
+
+- claim: Classifies the eight supported intents with accuracy above 0.88 on the held out split. (cites: eval-intent-accuracy)
+- claim: Runs comfortably within 64 megabytes of memory on the target device.
