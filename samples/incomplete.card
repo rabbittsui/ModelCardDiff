@@ -8,3 +8,6 @@ and makes a capability claim that cites nothing in the results.
 
 ## Intended Use
 
+The model is intended for on device triage where network access is limited.
+
+## Capabilities
