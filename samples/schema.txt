@@ -1,0 +1,1 @@
+# Requirements schema for support intent model cards.
