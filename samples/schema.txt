@@ -2,3 +2,5 @@
 #
 # One directive per line. Blank lines and lines beginning with # are ignored.
 #
+#   require <Section Name>   the section must exist and be non-empty
+#
