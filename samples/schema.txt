@@ -4,3 +4,5 @@
 #
 #   require <Section Name>   the section must exist and be non-empty
 #
+# Section names are matched case insensitively against the card headings.
+
