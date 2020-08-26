@@ -6,3 +6,5 @@
 #
 # Section names are matched case insensitively against the card headings.
 
+require Overview
+require Intended Use
