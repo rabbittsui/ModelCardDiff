@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Palette reason: the subject is which capability claim is backed by an
+  evaluation and which is not. Two core colours: neutral ink #1f2933 for
+  structure and labels, verified green #1b6b3a for a claim that resolves to a
+  result. One accent, amber #b45309, appears in exactly one place: the uncited
+  claim, which is the thing the reader should look at first. A dangling citation
+  (an id no result provides) is drawn in ink with a dashed connector so it reads
+  as "points nowhere" without competing with the accent.
+
