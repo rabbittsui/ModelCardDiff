@@ -16,3 +16,11 @@
     UNCITED  -                      (the 64 megabytes claim)
     DANGLING eval-sota              (no such result)
 
+  Motion: none.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img"
+     aria-labelledby="title desc" width="640" height="360">
+  <title id="title">Claim to evaluation citations for the sample card</title>
+  <desc>Three capability claims from samples/incomplete.card on the left, and the
+    evaluations they cite on the right. The first claim cites
+    eval-intent-accuracy, which exists in the results. The second claim, about
