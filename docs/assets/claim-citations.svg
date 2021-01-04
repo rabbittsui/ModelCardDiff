@@ -32,3 +32,11 @@
 
   <text x="24" y="34"
         font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="15" font-weight="600" fill="#1f2933">Capability claims</text>
+  <text x="440" y="34"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="15" font-weight="600" fill="#1f2933">Results</text>
+
+  <!-- Connectors first so boxes sit on top. One stroke width per role:
+       resolved 2, dangling 2 dashed. -->
+  <!-- Claim 1 resolves to eval-intent-accuracy -->
