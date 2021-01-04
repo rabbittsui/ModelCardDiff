@@ -24,3 +24,11 @@
   <desc>Three capability claims from samples/incomplete.card on the left, and the
     evaluations they cite on the right. The first claim cites
     eval-intent-accuracy, which exists in the results. The second claim, about
+    64 megabytes of memory, cites nothing and is marked in amber as the uncited
+    claim. The third claim cites eval-sota with a dashed connector because no
+    result provides that evaluation.</desc>
+
+  <rect x="0" y="0" width="640" height="360" fill="#ffffff"/>
+
+  <text x="24" y="34"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
