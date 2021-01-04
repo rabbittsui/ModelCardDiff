@@ -8,3 +8,11 @@
   (an id no result provides) is drawn in ink with a dashed connector so it reads
   as "points nowhere" without competing with the accent.
 
+  Source of every label and number: the sample card samples/incomplete.card and
+  its Results section, read verbatim. The three claims and the single result
+  (eval-intent-accuracy = accuracy 0.89) are exactly what the CLI reports from
+  `modelcarddiff claims samples/incomplete.card`:
+    CITES    eval-intent-accuracy   (resolved)
+    UNCITED  -                      (the 64 megabytes claim)
+    DANGLING eval-sota              (no such result)
+
