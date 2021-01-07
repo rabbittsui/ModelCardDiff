@@ -40,3 +40,11 @@
   <!-- Connectors first so boxes sit on top. One stroke width per role:
        resolved 2, dangling 2 dashed. -->
   <!-- Claim 1 resolves to eval-intent-accuracy -->
+  <line x1="416" y1="96" x2="440" y2="150" stroke="#1b6b3a" stroke-width="2"/>
+  <!-- Claim 3 cites eval-sota, which does not exist: dashed to open target -->
+  <line x1="416" y1="288" x2="440" y2="230" stroke="#1f2933" stroke-width="2"
+        stroke-dasharray="4 4"/>
+
+  <!-- Claim boxes. One corner radius reused: 3. One box stroke: 1.5. -->
+  <!-- Claim 1: resolved -->
+  <rect x="24" y="64" width="392" height="64" rx="3" fill="#ffffff"
