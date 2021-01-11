@@ -56,3 +56,11 @@
         font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
         font-size="13" fill="#1f2933">accuracy above 0.88 on the held out split.</text>
   <text x="40" y="122"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="11" fill="#1b6b3a">cites eval-intent-accuracy</text>
+
+  <!-- Claim 2: uncited, the accent -->
+  <rect x="24" y="152" width="392" height="64" rx="3" fill="#ffffff"
+        stroke="#b45309" stroke-width="1.5"/>
+  <text x="40" y="178"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
