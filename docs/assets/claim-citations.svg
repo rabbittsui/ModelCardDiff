@@ -48,3 +48,11 @@
   <!-- Claim boxes. One corner radius reused: 3. One box stroke: 1.5. -->
   <!-- Claim 1: resolved -->
   <rect x="24" y="64" width="392" height="64" rx="3" fill="#ffffff"
+        stroke="#1b6b3a" stroke-width="1.5"/>
+  <text x="40" y="90"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="13" fill="#1f2933">Classifies the eight supported intents with</text>
+  <text x="40" y="108"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="13" fill="#1f2933">accuracy above 0.88 on the held out split.</text>
+  <text x="40" y="122"
