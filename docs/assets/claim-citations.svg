@@ -72,3 +72,11 @@
         font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
         font-size="11" font-weight="600" fill="#b45309">uncited: cites no evaluation</text>
 
+  <!-- Claim 3: dangling -->
+  <rect x="24" y="256" width="392" height="64" rx="3" fill="#ffffff"
+        stroke="#1f2933" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="40" y="282"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="13" fill="#1f2933">Reaches state of the art quality on every</text>
+  <text x="40" y="300"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
