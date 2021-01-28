@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Palette reason: the subject is gating claims in a model card against the
+  evidence that backs them. Two core colours: neutral ink #1f2933 for the
+  established part of the name, and a verified green #1b6b3a for the part that
+  means the claim is backed. One accent, amber #b45309, is not used in the logo
