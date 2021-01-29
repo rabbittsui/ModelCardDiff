@@ -8,3 +8,7 @@
   the diagram where it marks the one unbacked claim. The wordmark splits the
   compound name at its morpheme boundary: "modelcard" in ink, "diff" in green,
   because the tool's job is the diff that keeps a card honest.
+
+  No mark is added. The tool's core data structure is an ordered list of claims,
+  each resolved or not, which a wordmark represents honestly without inventing
+  geometry that would not be a literal diagram of that list.
