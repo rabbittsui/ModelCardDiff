@@ -12,3 +12,7 @@
   No mark is added. The tool's core data structure is an ordered list of claims,
   each resolved or not, which a wordmark represents honestly without inventing
   geometry that would not be a literal diagram of that list.
+
+  Motion: none.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img"
