@@ -19,4 +19,4 @@ Initial release.
   the complete card for the diff.
 - Claim citation diagram and a wordmark logo.
 
-<!-- draft note 106 -->
+<!-- draft note 107 -->
