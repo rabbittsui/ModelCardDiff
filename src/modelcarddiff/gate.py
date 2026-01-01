@@ -110,3 +110,25 @@ def gate(card: Card, schema: Schema) -> GateResult:
             Finding(
                 code=UNMATCHED_METRIC,
                 message=(
+                    f"claim quotes {quote.quoted} which no result value matches: "
+                    f"{quote.claim.text}"
+                ),
+                line=quote.claim.line,
+            )
+        )
+
+    # 4. Distinct limitations.
+    for dup in claims_mod.duplicate_limitations(card):
+        findings.append(
+            Finding(
+                code=DUPLICATE_LIMITATION,
+                message=(
+                    f"limitation {dup.second_index + 1} repeats limitation "
+                    f"{dup.first_index + 1}: {dup.text}"
+                ),
+            )
+        )
+
+    return GateResult(findings=findings)
+
+# draft note 925
