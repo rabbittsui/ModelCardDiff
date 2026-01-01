@@ -52,3 +52,15 @@ class DiffTests(unittest.TestCase):
         old = card.parse("## Results\ne = accuracy 0.90\n")
         new = card.parse("## Results\ne = accuracy 0.95\n")
         changes = diff.diff(old, new)
+        self.assertFalse(diff.has_regression(changes))
+        self.assertTrue(any(c.kind == diff.EDITORIAL for c in changes))
+
+    def test_identical_cards_no_changes(self):
+        changes = diff.diff(self.old, self.old)
+        self.assertEqual(changes, [])
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 926
