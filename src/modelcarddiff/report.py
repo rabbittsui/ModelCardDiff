@@ -96,3 +96,23 @@ def render_diff(changes: list[Change], old_name: str, new_name: str) -> list[str
     lines.append(
         "summary: "
         + ", ".join(
+            f"{counts[kind]} {_CHANGE_LABELS[kind]}"
+            for kind in (ADDED_CLAIM, REMOVED_LIMITATION, METRIC_REGRESSION, EDITORIAL)
+        )
+    )
+    return lines
+
+
+def _count_kinds(changes: list[Change]) -> dict[str, int]:
+    """Count changes by kind, with every known kind present."""
+    counts = {
+        ADDED_CLAIM: 0,
+        REMOVED_LIMITATION: 0,
+        METRIC_REGRESSION: 0,
+        EDITORIAL: 0,
+    }
+    for change in changes:
+        counts[change.kind] = counts.get(change.kind, 0) + 1
+    return counts
+
+# draft note 929
