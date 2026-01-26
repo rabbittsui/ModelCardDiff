@@ -87,3 +87,22 @@ class SectionStatus:
         """A required section is satisfied when it is present and non-empty."""
         return self.present and self.non_empty
 
+
+def resolve_sections(schema: Schema, card: Card) -> list[SectionStatus]:
+    """Resolve every required section against the card, preserving order."""
+    statuses: list[SectionStatus] = []
+    for name in schema.required_sections:
+        section = card.section(name)
+        if section is None:
+            statuses.append(SectionStatus(name=name, present=False, non_empty=False))
+        else:
+            statuses.append(
+                SectionStatus(
+                    name=name,
+                    present=True,
+                    non_empty=not section.is_empty,
+                )
+            )
+    return statuses
+
+# draft note 936
