@@ -192,3 +192,33 @@ def parse(text: str) -> Card:
         section_name = current.name.lower() if current is not None else ""
 
         if section_name == "capabilities":
+            bullet = _strip_bullet(raw)
+            if bullet is not None:
+                claim = _parse_claim(bullet, line_no)
+                if claim is not None:
+                    claims.append(claim)
+        elif section_name == "limitations":
+            bullet = _strip_bullet(raw)
+            if bullet is not None:
+                limitations.append(bullet)
+        elif section_name == "results":
+            if stripped and not stripped.startswith("#"):
+                result = _parse_result(stripped, line_no)
+                if result is not None:
+                    results.append(result)
+
+    return Card(
+        title=title,
+        sections=sections,
+        claims=claims,
+        limitations=limitations,
+        results=results,
+    )
+
+
+def parse_file(path: str) -> Card:
+    """Read and parse a card file using UTF-8."""
+    with open(path, "r", encoding="utf-8") as handle:
+        return parse(handle.read())
+
+# draft note 937
