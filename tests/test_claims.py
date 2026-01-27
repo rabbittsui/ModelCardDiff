@@ -71,3 +71,19 @@ class DistinctLimitationTests(unittest.TestCase):
         parsed = card.parse(
             "## Limitations\n"
             "- The model may not work in all cases.\n"
+            "- In all cases the model may not work.\n"
+        )
+        dups = claims.duplicate_limitations(parsed)
+        self.assertEqual(len(dups), 1)
+        self.assertEqual(dups[0].first_index, 0)
+        self.assertEqual(dups[0].second_index, 1)
+
+    def test_complete_sample_has_distinct_limitations(self):
+        parsed = card.parse_file(os.path.join(SAMPLES, "complete.card"))
+        self.assertEqual(claims.duplicate_limitations(parsed), [])
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 938
