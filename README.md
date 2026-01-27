@@ -425,3 +425,57 @@ modelcarddiff/
 
 In continuous integration, run the gate on the card and let the exit code fail
 the job.
+
+```
+python -m modelcarddiff gate schema.txt model-card.md
+```
+
+To catch regressions between the merge base and the branch, run the diff on the
+two versions of the card and let a regression fail the job.
+
+```
+python -m modelcarddiff diff base-card.md head-card.md
+```
+
+Because the output is line oriented, you can also diff two runs in git. Save the
+gate output to a file, commit it next to the card, and a later change to the
+card produces a small readable diff in that file.
+
+## Verification
+
+Run the test suite from the project root with the source tree on the path.
+
+```
+set PYTHONPATH=src
+python -m unittest discover -s tests -v
+```
+
+The suite has 45 tests across six files. `test_card.py` covers the parser,
+including titles, cited and uncited claims, numeric and text results, and empty
+section detection. `test_schema.py` covers directive parsing, duplicate
+collapsing, and section resolution. `test_claims.py` covers citation
+resolution, the bound versus exact value metric check, and limitation
+distinctness. `test_gate.py` covers each finding code and deterministic output.
+`test_diff.py` covers the four change kinds and the regression direction rules.
+`test_cli.py` runs every subcommand end to end and asserts the exit codes.
+
+Every SVG under `docs/assets/` parses as XML, and a search across the project
+for the em dash character returns nothing.
+
+## Roadmap
+
+These are directions, not dated promises.
+
+- An optional structured output mode for the reports.
+- A way to read the value behind a bound and warn when a cited result is far
+  from the stated threshold.
+- A configurable metric direction map, layered on top of the name heuristic so
+  the default stays zero configuration.
+- Support for multi-line claim and limitation bullets.
+
+## License
+
+MIT. See [LICENSE](LICENSE). The copyright holder is "the ModelCardDiff
+authors", year 2026.
+
+<!-- draft note 940 -->
