@@ -24,3 +24,12 @@ should not be used as the sole decision maker for account actions.
 - Accuracy drops on messages longer than 512 tokens because they are truncated.
 - Latency figures assume a warm process and do not include cold start cost.
 
+## Results
+
+eval-intent-accuracy = accuracy 0.91
+eval-latency-median = latency_ms 37
+eval-macro-f1 = macro_f1 0.87
+eval-refund-billing-confusion = confusion_rate 0.14
+eval-escalation-recall = recall 0.82
+
+<!-- draft note 942 -->
