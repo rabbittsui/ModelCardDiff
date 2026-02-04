@@ -54,3 +54,16 @@ class ParseTests(unittest.TestCase):
     def test_limitations_collected(self):
         text = "## Limitations\n\n- one thing\n- another thing\n"
         parsed = card.parse(text)
+        self.assertEqual(parsed.limitations, ["one thing", "another thing"])
+
+    def test_parse_complete_sample(self):
+        parsed = card.parse_file(os.path.join(SAMPLES, "complete.card"))
+        self.assertEqual(len(parsed.claims), 3)
+        self.assertEqual(len(parsed.limitations), 4)
+        self.assertIn("eval-intent-accuracy", parsed.result_ids())
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 943
