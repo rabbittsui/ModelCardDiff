@@ -53,3 +53,16 @@ class GateTests(unittest.TestCase):
         self.assertIn(gate.UNMATCHED_METRIC, codes)
 
     def test_deterministic_output(self):
+        parsed = _load("incomplete.card")
+        first = gate.gate(parsed, self.schema).findings
+        second = gate.gate(parsed, self.schema).findings
+        self.assertEqual(
+            [(f.code, f.message) for f in first],
+            [(f.code, f.message) for f in second],
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 945
