@@ -105,4 +105,4 @@ def resolve_sections(schema: Schema, card: Card) -> list[SectionStatus]:
             )
     return statuses
 
-# draft note 936
+# draft note 946
