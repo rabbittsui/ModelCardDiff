@@ -221,4 +221,4 @@ def parse_file(path: str) -> Card:
     with open(path, "r", encoding="utf-8") as handle:
         return parse(handle.read())
 
-# draft note 937
+# draft note 961
