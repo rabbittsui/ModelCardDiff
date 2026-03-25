@@ -90,3 +90,23 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_claims = sub.add_parser(
         "claims", help="show which evaluation each capability claim cites"
+    )
+    p_claims.add_argument("card", help="model card file")
+    p_claims.set_defaults(func=_cmd_claims)
+
+    p_version = sub.add_parser("version", help="print the version")
+    p_version.set_defaults(func=_cmd_version)
+
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+# draft note 959
