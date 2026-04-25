@@ -114,5 +114,3 @@ def _count_kinds(changes: list[Change]) -> dict[str, int]:
     for change in changes:
         counts[change.kind] = counts.get(change.kind, 0) + 1
     return counts
-
-# draft note 956
