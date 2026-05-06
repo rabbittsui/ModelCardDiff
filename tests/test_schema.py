@@ -43,3 +43,14 @@ class SchemaTests(unittest.TestCase):
         status = schema.resolve_sections(sch, parsed)[0]
         self.assertTrue(status.present)
         self.assertFalse(status.non_empty)
+        self.assertFalse(status.satisfied)
+
+    def test_parse_sample_schema(self):
+        sch = schema.parse_file(os.path.join(SAMPLES, "schema.txt"))
+        self.assertEqual(len(sch.required_sections), 5)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 963
