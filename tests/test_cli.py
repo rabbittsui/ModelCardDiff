@@ -54,3 +54,16 @@ class CliTests(unittest.TestCase):
     def test_claims_incomplete_shows_uncited(self):
         code, out = _run(["claims", os.path.join(SAMPLES, "incomplete.card")])
         self.assertEqual(code, 0)
+        self.assertIn("UNCITED", out)
+        self.assertIn("DANGLING", out)
+
+    def test_version(self):
+        code, out = _run(["version"])
+        self.assertEqual(code, 0)
+        self.assertIn("modelcarddiff", out)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 969
