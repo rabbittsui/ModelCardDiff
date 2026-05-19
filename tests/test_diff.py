@@ -63,4 +63,4 @@ class DiffTests(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-# draft note 968
+# draft note 970
