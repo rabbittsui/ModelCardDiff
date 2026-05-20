@@ -26,3 +26,13 @@ model.
 ## Card format
 
 A card is Markdown with these conventions:
+
+- `## Section Name` starts a section.
+- A capability claim is a bullet in the Capabilities section written as
+  `- claim: <text> (cites: <eval-id>)`. The `(cites: ...)` suffix is optional;
+  a claim without it is an uncited claim.
+- A limitation is any bullet in the Limitations section.
+- A result is a line in the Results section written as
+  `<eval-id> = <metric-name> <value>`.
+
+<!-- draft note 971 -->
