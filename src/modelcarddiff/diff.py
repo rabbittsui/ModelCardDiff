@@ -145,3 +145,24 @@ def diff(old: Card, new: Card) -> list[Change]:
             )
 
     for eval_id, old_result in old_results.items():
+        if eval_id not in new_results:
+            editorial.append(
+                Change(
+                    kind=EDITORIAL,
+                    detail=(
+                        f"result removed: {eval_id} {old_result.metric} "
+                        f"{old_result.value_text}"
+                    ),
+                )
+            )
+
+    return added + removed + regressions + editorial
+
+
+def has_regression(changes: list[Change]) -> bool:
+    """True when any change is a metric regression."""
+    return any(c.kind == METRIC_REGRESSION for c in changes)
+
+
+def has_removed_limitation(changes: list[Change]) -> bool:
+    """True when any change is a removed limitation."""
