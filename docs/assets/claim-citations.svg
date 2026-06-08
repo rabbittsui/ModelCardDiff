@@ -88,3 +88,20 @@
   <!-- Result box: the only evaluation the card actually provides -->
   <rect x="440" y="128" width="176" height="52" rx="3" fill="#ffffff"
         stroke="#1b6b3a" stroke-width="1.5"/>
+  <text x="456" y="152"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="12" fill="#1f2933">eval-intent-accuracy</text>
+  <text x="456" y="170"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="12" fill="#1b6b3a">accuracy 0.89</text>
+
+  <!-- Open, absent target for the dangling citation -->
+  <rect x="440" y="204" width="176" height="52" rx="3" fill="#ffffff"
+        stroke="#1f2933" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="456" y="228"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="12" fill="#52606d">eval-sota</text>
+  <text x="456" y="246"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#52606d">not in results</text>
+</svg>
