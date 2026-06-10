@@ -23,3 +23,10 @@
 
   <rect x="0" y="0" width="240" height="96" fill="#ffffff"/>
 
+  <text x="16" y="54"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="24" font-weight="600" fill="#1f2933">modelcard<tspan fill="#1b6b3a">diff</tspan></text>
+  <text x="16" y="78"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#52606d">gate and compare model cards</text>
+</svg>
