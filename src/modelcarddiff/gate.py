@@ -130,5 +130,3 @@ def gate(card: Card, schema: Schema) -> GateResult:
         )
 
     return GateResult(findings=findings)
-
-# draft note 925
