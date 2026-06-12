@@ -235,3 +235,39 @@ def _exact_numbers(text: str):
 def unmatched_metric_quotes(card: Card) -> list[MetricQuote]:
     """Return quoted numbers that no result value matches."""
     return [q for q in metric_quotes(card) if not q.matched]
+
+
+def _content_words(text: str) -> tuple[str, ...]:
+    """Reduce a limitation to a sorted tuple of lowercased content words."""
+    words = re.findall(r"[a-z0-9]+", text.lower())
+    kept = sorted(w for w in words if w not in _STOPWORDS)
+    return tuple(kept)
+
+
+def duplicate_limitations(card: Card) -> list[DuplicateLimitation]:
+    """Find limitations that are not distinct.
+
+    Two limitations are treated as the same when their content words, after
+    removing stopwords, are identical. This catches boilerplate that has been
+    lightly reworded but says nothing new, which is the failure the check is
+    meant to surface.
+    """
+    seen: dict[tuple[str, ...], int] = {}
+    duplicates: list[DuplicateLimitation] = []
+    for index, limitation in enumerate(card.limitations):
+        key = _content_words(limitation)
+        if not key:
+            continue
+        if key in seen:
+            duplicates.append(
+                DuplicateLimitation(
+                    first_index=seen[key],
+                    second_index=index,
+                    text=limitation,
+                )
+            )
+        else:
+            seen[key] = index
+    return duplicates
+
+# draft note 972
