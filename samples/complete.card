@@ -23,3 +23,12 @@ should not be used as the sole decision maker for account actions.
 - Accuracy drops on messages longer than 512 tokens because they are truncated.
 - The refund and billing classes share vocabulary and are confused more often than other pairs.
 - Latency figures assume a warm process and do not include cold start cost.
+
+## Results
+
+eval-intent-accuracy = accuracy 0.93
+eval-latency-median = latency_ms 37
+eval-macro-f1 = macro_f1 0.87
+eval-refund-billing-confusion = confusion_rate 0.11
+
+<!-- draft note 980 -->
