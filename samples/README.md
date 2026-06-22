@@ -35,4 +35,4 @@ A card is Markdown with these conventions:
 - A result is a line in the Results section written as
   `<eval-id> = <metric-name> <value>`.
 
-<!-- draft note 976 -->
+<!-- draft note 981 -->
