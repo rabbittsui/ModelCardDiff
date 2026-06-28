@@ -220,5 +220,3 @@ def parse_file(path: str) -> Card:
     """Read and parse a card file using UTF-8."""
     with open(path, "r", encoding="utf-8") as handle:
         return parse(handle.read())
-
-# draft note 961
