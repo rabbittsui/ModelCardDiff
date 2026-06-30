@@ -166,3 +166,4 @@ def has_regression(changes: list[Change]) -> bool:
 
 def has_removed_limitation(changes: list[Change]) -> bool:
     """True when any change is a removed limitation."""
+    return any(c.kind == REMOVED_LIMITATION for c in changes)
