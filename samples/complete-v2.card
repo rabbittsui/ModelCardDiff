@@ -31,5 +31,3 @@ eval-latency-median = latency_ms 37
 eval-macro-f1 = macro_f1 0.87
 eval-refund-billing-confusion = confusion_rate 0.14
 eval-escalation-recall = recall 0.82
-
-<!-- draft note 973 -->
