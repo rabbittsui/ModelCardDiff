@@ -19,5 +19,3 @@ The model is intended for on device triage where network access is limited.
 ## Results
 
 eval-intent-accuracy = accuracy 0.89
-
-<!-- draft note 979 -->
