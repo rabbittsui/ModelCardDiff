@@ -34,5 +34,3 @@ A card is Markdown with these conventions:
 - A limitation is any bullet in the Limitations section.
 - A result is a line in the Results section written as
   `<eval-id> = <metric-name> <value>`.
-
-<!-- draft note 981 -->
