@@ -11,5 +11,3 @@ require Intended Use
 require Capabilities
 require Limitations
 require Results
-
-<!-- draft note 960 -->
