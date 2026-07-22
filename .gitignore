@@ -5,3 +5,7 @@ build/
 dist/
 .eggs/
 .pytest_cache/
+.venv/
+venv/
+
+<!-- draft note 984 -->
