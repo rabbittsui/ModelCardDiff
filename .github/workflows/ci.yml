@@ -25,5 +25,3 @@ jobs:
         pip install pytest
     - name: test
       run: pytest -q
-
-# draft note 962
