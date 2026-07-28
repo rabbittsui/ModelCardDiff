@@ -269,5 +269,3 @@ def duplicate_limitations(card: Card) -> list[DuplicateLimitation]:
         else:
             seen[key] = index
     return duplicates
-
-# draft note 972
