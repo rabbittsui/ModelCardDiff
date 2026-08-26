@@ -18,5 +18,3 @@ Initial release.
 - Sample fixtures: a complete card, an incomplete card, and a second version of
   the complete card for the diff.
 - Claim citation diagram and a wordmark logo.
-
-<!-- draft note 924 -->
