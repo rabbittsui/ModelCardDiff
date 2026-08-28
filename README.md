@@ -477,5 +477,3 @@ These are directions, not dated promises.
 
 MIT. See [LICENSE](LICENSE). The copyright holder is "the ModelCardDiff
 authors", year 2026.
-
-<!-- draft note 997 -->
